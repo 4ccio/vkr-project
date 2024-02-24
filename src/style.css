@@ -1,0 +1,159 @@
+/* Color Theme Swatches in Hex */
+.Abstract-acrylic-oil-gouache-paint-background.-Dark-teal-color-mix-texture.-Layer-pattern-technique.-Creative-decorative-art1 { color: #012E40; }
+.Abstract-acrylic-oil-gouache-paint-background.-Dark-teal-color-mix-texture.-Layer-pattern-technique.-Creative-decorative-art2 { color: #025159; }
+.Abstract-acrylic-oil-gouache-paint-background.-Dark-teal-color-mix-texture.-Layer-pattern-technique.-Creative-decorative-art3 { color: #038C8C; }
+.Abstract-acrylic-oil-gouache-paint-background.-Dark-teal-color-mix-texture.-Layer-pattern-technique.-Creative-decorative-art4 { color: #03A696; }
+.Abstract-acrylic-oil-gouache-paint-background.-Dark-teal-color-mix-texture.-Layer-pattern-technique.-Creative-decorative-art5 { color: #F28705; }
+
+/* Color Theme Swatches in Hex */
+.Singapore-Airlines-:-IFE-1-hex { color: #1E1E26; }
+.Singapore-Airlines-:-IFE-2-hex { color: #594011; }
+.Singapore-Airlines-:-IFE-3-hex { color: #BFA288; }
+.Singapore-Airlines-:-IFE-4-hex { color: #8C7A70; }
+.Singapore-Airlines-:-IFE-5-hex { color: #593527; }
+
+
+:root {
+    --dkblue: #0d314b;
+    --dgreen: #025159;
+    --green: #038C8C;;
+    --lgreen: #03A696;
+    --orange: #F28705;
+    /* --font-size: 1.3rem; */
+    --montserrat: 'Montserrat', sans-serif;
+    --ysabeau: "Ysabeau Office", sans-serif;
+    --ys_inf: "Ysabeau Infant", sans-serif;
+    --raleway: "Raleway", sans-serif;
+    /* --hind: 'Hind Siliguri', sans-serif; */
+}
+
+/* // <uniquifier>: Use a uniquifier for the class name
+// <weight>: Use a value from 1 to 1000 */
+
+/* .ysabeau {
+  font-family: "Ysabeau", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+} */
+/* border box model: https://css-tricks.com/box-sizing/ */
+html {
+    box-sizing: border-box;
+}
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+header {
+    padding: 30px 0;
+}
+body {
+    
+    font-family: var(--raleway);
+    font-weight: 400;
+    /* background-image: url(./images/8205632732_3e35211f36_o.png); */
+    /* background-image: radial-gradient(#373737 1px, transparent 1px);
+    background-size: 10px 10px;
+    background-color: #000000; */
+    /* background:
+    radial-gradient(35.36% 35.36% at 100% 25%,#0000 66%,#373737 68% 70%,#0000 72%) 10px 10px/calc(2*10px) calc(2*10px),
+    radial-gradient(35.36% 35.36% at 0    75%,#0000 66%,#373737 68% 70%,#0000 72%) 10px 10px/calc(2*10px) calc(2*10px),
+    radial-gradient(35.36% 35.36% at 100% 25%,#0000 66%,#373737 68% 70%,#0000 72%) 0 0/calc(2*10px) calc(2*10px),
+    radial-gradient(35.36% 35.36% at 0    75%,#0000 66%,#373737 68% 70%,#0000 72%) 0 0/calc(2*10px) calc(2*10px),
+    repeating-conic-gradient(#000000 0 25%,#0000 0 50%) 0 0/calc(2*10px) calc(2*10px),
+    radial-gradient(#0000 66%,#373737 68% 70%,#0000 72%) 0 calc(10px/2)/10px 10px
+    #000000; */
+    /* background-color: url(./images/pattern1.jpg), rgba(0, 0, 0, 0.9); */
+    /* color: var(--beige); */
+    /* font-size: var(--font-size); */
+    /* background-color: #000000d7; */
+    /* background-repeat: no-repeat; */
+    /* background-size: cover; */
+    /* color: rgb(119, 116, 116); */
+    /* background-image: url(./images/8205632732_3e35211f36_o.png); */
+
+}
+
+h1 {
+    font-family: var(--montserrat);
+    /* font-weight: 400; */
+    margin: 0;
+    /* color: white; */
+}
+.main-heading {
+    font-weight: 400;
+}
+
+.intro {
+    /* color: #BFA288; */
+    /* font-family: var(--monster); */
+    /* font-weight: 200; */
+    margin-bottom: 20px;
+    /* font-size: 15px; */
+}
+.disclaimer {
+    font-weight: 500;
+}
+.invest-idea {
+    background-color: #d4bda9;
+    border-radius: 10px;
+}
+.stock-img {
+    /* width: 150px;
+    height: 150px; */
+    max-width: 200px;
+}
+/* h1, h2, h3 {
+    margin: 0;
+}
+a {
+    color: var(--link);
+}
+a:hover {
+    color: var(--hlink);
+    text-decoration: none;
+}
+
+.main-box {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: 
+    "estate stock crypto";
+    margin: 20px;
+    background-color: white;
+    border-radius: 10px;
+    
+    align-items: center;
+    padding: 20px;
+}
+
+/* .box-item {
+    
+} */
+/* .estate {
+    grid-area: estate;
+    
+}
+.img-des {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+.stock {
+    grid-area: stock;
+}
+.crypto {
+    grid-area: crypto;
+}
+.image {
+    width: 100%;
+    max-width: 150px;
+    height: auto;
+}
+.description {
+    margin-top: 10px;
+    margin-bottom: 0;
+    font-size: 2vw;
+} */ 
