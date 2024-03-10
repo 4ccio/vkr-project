@@ -8,7 +8,7 @@ import {
 } from "@mui/material/styles";
 // import AlertDialogSlide from "./AlertDialogSlide";
 // import Intro from "./Intro";
-import Investments from "./Investments";
+import MainPage from "./MainPage";
 
 let theme = createTheme({
   typography: {
@@ -16,6 +16,9 @@ let theme = createTheme({
     h1: {
       fontSize: "4rem",
       fontWeight: "400",
+    },
+    h2: {
+      fontSize: "3rem",
     },
     h3: {
       fontSize: "2rem",
@@ -31,7 +34,7 @@ const App = () => {
       <BrowserRouter>
         <Routes>
           {/* <Route path="/invetsments" element={<Investments />} /> */}
-          <Route path="/" element={<Investments />} />
+          <Route path="/" element={<MainPage />} />
         </Routes>
       </BrowserRouter>
     </ThemeProvider>
