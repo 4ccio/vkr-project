@@ -9,6 +9,7 @@ import {
 // import AlertDialogSlide from "./AlertDialogSlide";
 // import Intro from "./Intro";
 import MainPage from "./MainPage";
+import CoursePage from "./CoursePage";
 
 let theme = createTheme({
   typography: {
@@ -23,6 +24,18 @@ let theme = createTheme({
     h3: {
       fontSize: "2rem",
     },
+    body1: {
+      fontSize: "1rem",
+    },
+  },
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: 600,
+      md: 850,
+      lg: 1200,
+      xl: 1536,
+    },
   },
 });
 
@@ -33,7 +46,7 @@ const App = () => {
     <ThemeProvider theme={theme}>
       <BrowserRouter>
         <Routes>
-          {/* <Route path="/invetsments" element={<Investments />} /> */}
+          <Route path="/coursepage" element={<CoursePage />} />
           <Route path="/" element={<MainPage />} />
         </Routes>
       </BrowserRouter>

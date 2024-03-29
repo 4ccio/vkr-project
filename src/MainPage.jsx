@@ -1,13 +1,14 @@
-import React, { useState } from "react";
-import AlertDialogSlide from "./AlertDialogSlide";
-import { Backdrop, Box, Container, Paper, Typography } from "@mui/material";
+// import React, { useState } from "react";
+// import AlertDialogSlide from "./AlertDialogSlide";
+import { Box, Container, Stack, Typography } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
 import InvestCard from "./InvestCard";
 import mainImage from "./images/maninvest.svg";
 import stock from "./images/stockmarket.svg";
 import crypto from "./images/crypto.svg";
 import realEstate from "./images/realestate.jpg";
-import { Stack } from "react-bootstrap";
+import { Link } from "react-router-dom";
+// import { Stack } from "react-bootstrap";
 // import { Carousel } from "react-bootstrap";
 
 const MainPage = () => {
@@ -47,13 +48,12 @@ const MainPage = () => {
 
       <Box component={"section"} className="introduction">
         <Container>
-          <Grid container spacing={2} alignItems={"center"}>
+          <Grid container alignItems={"center"}>
             <Grid xs={12} md={8}>
               <Container
                 sx={{
                   display: "flex",
                   alignItems: "center",
-                  // justifyContent: "center",
                   flexDirection: "column",
                 }}
               >
@@ -86,7 +86,6 @@ const MainPage = () => {
                   sx={{
                     height: "auto",
                     maxHeight: 350,
-                    // width: 500,
                     objectFit: "contain",
                     maxWidth: "100%",
                   }}
@@ -98,28 +97,31 @@ const MainPage = () => {
       </Box>
       <Box component={"section"} className="investCards">
         <Container>
-          <Box className="investCards-title">
-            <Typography variant="h3" mb={3}>
-              Сферы инвестирования
-            </Typography>
-            <Grid container spacing={4} justifyContent={"space-between"}>
-              <Grid xs={12} md={4}>
-                <InvestCard title={"Stock Market"} image={stock}></InvestCard>
-              </Grid>
-              <Grid xs={12} md={4}>
-                <InvestCard
-                  title={"Cryptocurrency"}
-                  image={crypto}
-                ></InvestCard>
-              </Grid>
-              <Grid xs={12} md={4}>
-                <InvestCard
-                  title={"Real Estate"}
-                  image={realEstate}
-                ></InvestCard>
-              </Grid>
-            </Grid>
-          </Box>
+          <Typography variant="h3" mb={3} sx={{ textAlign: { xs: "center" } }}>
+            Сферы инвестирования
+          </Typography>
+          <Stack
+            direction={{ xs: "column", md: "row" }}
+            justifyContent={{ xs: "center", md: "space-between" }}
+            alignItems={{ xs: "center", md: "flex-start" }}
+            useFlexGap
+            gap={3}
+          >
+            <Box width={"300px"}>
+              <Link to={"/coursepage"}>
+                <InvestCard title={"Фондовый рынок"} image={stock}></InvestCard>
+              </Link>
+            </Box>
+            <Box width={"300px"}>
+              <InvestCard title={"Криптовалюта"} image={crypto}></InvestCard>
+            </Box>
+            <Box width={"300px"}>
+              <InvestCard
+                title={"Недвижимость"}
+                image={realEstate}
+              ></InvestCard>
+            </Box>
+          </Stack>
         </Container>
       </Box>
     </div>

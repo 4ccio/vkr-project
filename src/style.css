@@ -1,4 +1,4 @@
-/* Color Theme Swatches in Hex */
+/* Color Theme Swatches in Hex
 .Abstract-acrylic-oil-gouache-paint-background.-Dark-teal-color-mix-texture.-Layer-pattern-technique.-Creative-decorative-art1 {
   color: #012e40;
 }
@@ -64,12 +64,16 @@ html {
 *::after {
   box-sizing: inherit;
 }
+a {
+  text-decoration: none;
+}
 /* header {
   margin-bottom: 10px;
 } */
 body {
   font-family: var(--raleway);
   font-weight: 400;
+  background-color: #e9edf0;
   /* background-image: url(./images/8205632732_3e35211f36_o.png); */
   /* background-image: radial-gradient(#373737 1px, transparent 1px);
     background-size: 10px 10px;
@@ -173,4 +177,31 @@ a:hover {
     margin-top: 10px;
     margin-bottom: 0;
     font-size: 2vw;
+} */
+/* .border::before {
+  content: "";
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  top: -5px;
+  left: -5px;
+  border-top: 2px solid tomato;
+  border-left: 2px solid tomato;
+  transition: all 0.25s;
+}
+.border:hover:before,
+.border:hover:after {
+  width: 104%;
+  height: 110%;
+}
+.border:after {
+  content: "";
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  bottom: -5px;
+  right: -5px;
+  border-bottom: 2px solid tomato;
+  border-right: 2px solid tomato;
+  transition: all 0.3s;
 } */
