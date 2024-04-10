@@ -58,15 +58,15 @@ const MainPage = () => {
                 }}
               >
                 <Box marginBottom={2}>
-                  <Typography variant="h2">Lorem, ipsum dolor.</Typography>
+                  <Typography variant="h2" fontWeight={300}>
+                    Инвестиции для начинающих
+                  </Typography>
                 </Box>
                 <Box>
-                  <Typography>
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                    Adipisci iure, ducimus sint sapiente rerum distinctio,
-                    assumenda autem provident repellendus excepturi nesciunt!
-                    Veniam corporis in possimus recusandae commodi minus
-                    assumenda est.
+                  <Typography variant="body1">
+                    Погружаемся в основы инвестиций. Быстро и без воды изучаем,
+                    какие активы существуют и могут приносить прибыль.
+                    Разбираемся в целях инвестирования и возможных рисках.
                   </Typography>
                 </Box>
               </Container>
@@ -88,6 +88,7 @@ const MainPage = () => {
                     maxHeight: 350,
                     objectFit: "contain",
                     maxWidth: "100%",
+                    width: { xs: 280, sm: "auto" },
                   }}
                 ></Box>
               </Box>

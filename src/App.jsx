@@ -6,26 +6,34 @@ import {
   createTheme,
   responsiveFontSizes,
 } from "@mui/material/styles";
+import CssBaseline from "@mui/material/CssBaseline";
 // import AlertDialogSlide from "./AlertDialogSlide";
 // import Intro from "./Intro";
 import MainPage from "./MainPage";
 import CoursePage from "./CoursePage";
 
 let theme = createTheme({
+  palette: {
+    background: {
+      default: `#e9edf0`,
+    },
+  },
   typography: {
     fontFamily: "Montserrat, sans-serif",
     h1: {
-      fontSize: "4rem",
+      fontSize: "3.5rem",
       fontWeight: "400",
     },
     h2: {
       fontSize: "3rem",
+      fontWeight: "400",
     },
     h3: {
       fontSize: "2rem",
+      fontWeight: "400",
     },
     body1: {
-      fontSize: "1rem",
+      fontSize: "1.2rem",
     },
   },
   breakpoints: {
@@ -44,6 +52,7 @@ theme = responsiveFontSizes(theme);
 const App = () => {
   return (
     <ThemeProvider theme={theme}>
+      <CssBaseline />
       <BrowserRouter>
         <Routes>
           <Route path="/coursepage" element={<CoursePage />} />
