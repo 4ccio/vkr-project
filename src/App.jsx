@@ -7,13 +7,14 @@ import {
   responsiveFontSizes,
 } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
-// import AlertDialogSlide from "./AlertDialogSlide";
-// import Intro from "./Intro";
 import MainPage from "./MainPage";
 import CoursePage from "./CoursePage";
 
 let theme = createTheme({
   palette: {
+    primary: {
+      main: "#3C3C3C",
+    },
     background: {
       default: `#e9edf0`,
     },

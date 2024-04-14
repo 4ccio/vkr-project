@@ -5,12 +5,17 @@ import {
   Accordion,
   AccordionSummary,
   AccordionDetails,
-  AccordionActions,
-  Button,
+  Stack,
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import AssetButton from "./AssetButton";
 
-const AssetCard = ({ assetName, assetImage, assetDetails }) => {
+const AssetCard = ({
+  assetName,
+  assetImage,
+  assetDetails,
+  assetButtonTitles,
+}) => {
   return (
     <div>
       <Box>
@@ -47,24 +52,24 @@ const AssetCard = ({ assetName, assetImage, assetDetails }) => {
               </Box>
             </Box>
           </AccordionSummary>
-          <AccordionDetails
-            sx={{
-              paddingBottom: "8px",
-            }}
-          >
+          <AccordionDetails>
             <Container>
               <Typography
+                marginBottom={1}
                 sx={{
-                  fontSize: "1.1rem",
+                  fontSize: "1rem",
+                  fontWeight: "400",
                 }}
               >
                 {assetDetails}
               </Typography>
+              <Stack spacing={2}>
+                {assetButtonTitles.map((item) => (
+                  <AssetButton key={item} title={item}></AssetButton>
+                ))}
+              </Stack>
             </Container>
           </AccordionDetails>
-          <AccordionActions>
-            <Button>Подробнее</Button>
-          </AccordionActions>
         </Accordion>
       </Box>
     </div>

@@ -7,6 +7,7 @@ import bondsIcon from "./images/bonds.svg";
 import etfIcon from "./images/Frame.svg";
 
 import AssetCard from "./AssetCard";
+import CourseIntro from "./CourseIntro";
 
 const CoursePage = () => {
   return (
@@ -28,93 +29,29 @@ const CoursePage = () => {
         </Container>
       </Box>
 
-      <Box component={"section"} className="course-intro" marginBottom={3}>
-        <Container>
-          <Container
-            sx={{
-              padding: "20px 0 20px 0",
-              backgroundColor: "#dfe4e9",
-              borderRadius: 5,
-              // border: "2px solid black",
-              boxShadow: "0px 3px 20px #A6B4C8",
-            }}
-          >
-            <Grid container alignItems={"center"}>
-              <Grid item={true} xs={12} md={8} sx={{ order: { xs: 2, md: 1 } }}>
-                <Container
-                  sx={{
-                    display: "flex",
-                    alignItems: "flex-start",
-                    flexDirection: "column",
-                  }}
-                >
-                  <Box>
-                    <Typography variant="h2" gutterBottom={true}>
-                      Фондовый рынок
-                    </Typography>
-                  </Box>
-                  <Box>
-                    <Typography
-                      variant="body1"
-                      textAlign={"start"}
-                      sx={{
-                        fontSize: "1.1rem",
-                      }}
-                    >
-                      Это место, где происходит обмен активами, аналогично
+      <CourseIntro
+        title={"Фондовый рынок"}
+        description={`Это место, где происходит обмен активами, аналогично
                       торговым площадкам. Здесь встречаются спрос и предложение
-                      на акции, облигации, валюты и другие ценные бумаги. <br />
+                      на акции, облигации, валюты и другие ценные бумаги. ${(
+                        <br />
+                      )}
                       Чтобы начать инвестировать, необходимо обратиться к
                       брокеру, который будет посредником между инвестором и
-                      компаниями, чьи акции будут покупаться или продаваться.
-                      <br />
-                      {/* Фондовый рынок можно сравнить с продуктовым рынком, где
-                      множество участников торгует разнообразными активами по
-                      различным ценам и качеству. На бирже можно встретить акции
-                      компаний, облигации государств, инвестиционные фонды,
-                      валюты и другие инструменты, каждый из которых имеет свою
-                      уникальную цену, формируемую в результате взаимодействия
-                      спроса и предложения. */}
-                    </Typography>
-                  </Box>
-                </Container>
-              </Grid>
-              <Grid item={true} xs={12} md={4} sx={{ order: { xs: 1, md: 2 } }}>
-                <Box
-                  sx={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                  }}
-                >
-                  <Box
-                    component={"img"}
-                    alt="Image"
-                    src={stock}
-                    sx={{
-                      height: "auto",
-                      maxHeight: 300,
-                      // width: 500,
-                      objectFit: "contain",
-                      maxWidth: "100%",
-                      width: { xs: 250, sm: 300 },
-                    }}
-                  ></Box>
-                </Box>
-              </Grid>
-            </Grid>
-          </Container>
-        </Container>
-      </Box>
+                      компаниями, чьи акции будут покупаться или продаваться.`}
+        image={stock}
+      ></CourseIntro>
 
       <Box component={"section"} className="course-elements">
         <Container>
-          <Grid
-            container
-            justifyContent={{ xs: "center", md: "space-between" }}
-          >
-            <Grid xs={12} md={6}>
-              <Stack spacing={2} maxWidth={"500px"}>
+          <Grid container justifyContent="center">
+            <Grid
+              xs={12}
+              md={6}
+              display={"flex"}
+              justifyContent={{ xs: "center", md: "space-between" }}
+            >
+              <Stack spacing={2}>
                 <Typography
                   variant="h3"
                   gutterBottom={true}
@@ -126,8 +63,15 @@ const CoursePage = () => {
                   assetName={"Акции"}
                   assetImage={stockIcon}
                   assetDetails={
-                    "Акция — это доля в компании, приобретая которую инвестор становится совладельцем бизнеса и может разделить его успехи."
+                    "Акция — это доля в компании, приобретая которую инвестор становится совладельцем бизнеса и может разделить его успехи и неудачи."
                   }
+                  assetButtonTitles={[
+                    "Что такое акции",
+                    "Как заработать на акциях",
+                    "Почему акции дорожают",
+                    "Почему акции дешевеют",
+                    "Рынок российских акций",
+                  ]}
                 ></AssetCard>
                 <AssetCard
                   assetName={"Облигации"}
@@ -135,6 +79,13 @@ const CoursePage = () => {
                   assetDetails={
                     "Облигация — долговая расписка, которую выпускает компания или государство. Приобретая ее, инвестор получает в будущем сумму долга плюс проценты."
                   }
+                  assetButtonTitles={[
+                    "Что такое облигации",
+                    "Как устроены облигации",
+                    "Какие бывают облигации",
+                    "Почему меняется цена облигаций",
+                    "Как и зачем покупать облигации",
+                  ]}
                 ></AssetCard>
                 <AssetCard
                   assetName={"Биржевые фонды"}
@@ -142,6 +93,12 @@ const CoursePage = () => {
                   assetDetails={
                     "Биржевые фонды — готовые портфели разных ценных бумаг или других активов. Инвесторы могут купить доли в таких портфелях — паи фонда."
                   }
+                  assetButtonTitles={[
+                    "Зачем нужны биржевые фонды",
+                    "Инвестируем в фонды акций",
+                    "В какие еще фонды можно инвестировать",
+                    "Как инвестору выбрать фонд",
+                  ]}
                 ></AssetCard>
               </Stack>
             </Grid>
