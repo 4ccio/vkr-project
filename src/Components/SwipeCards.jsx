@@ -10,7 +10,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import { Link, useParams } from "react-router-dom";
 import Markdown from "react-markdown";
 
-import data from "./Data/StockMarket/StocksCards";
+import data from "../Data/StockMarket/StocksCards";
 
 const CustomIconButton = styled(IconButton)(({ theme }) => ({
   backgroundColor: "#3C3C3C",
@@ -32,9 +32,10 @@ const CustomIconButton = styled(IconButton)(({ theme }) => ({
   },
 }));
 
-function SwipeableTextMobileStepper() {
-  const { courseId } = useParams();
-  console.log(courseId);
+function SwipeableTextMobileStepper({ corsesData }) {
+  const { courseId, id } = useParams();
+  const course = corsesData.find((course) => course.id === courseId);
+  const cards = course.console.log(courseId);
   const theme = useTheme();
   const [activeStep, setActiveStep] = React.useState(0);
   // const maxSteps = cards.lessons[0].cards.length;

@@ -3,14 +3,14 @@
 import { Box, Container, Stack, Typography } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
 import InvestCard from "./InvestCard";
-import mainImage from "./images/maninvest.svg";
-import stock from "./images/stockmarket.svg";
-import crypto from "./images/crypto.svg";
-import realEstate from "./images/realestate.jpg";
+import mainImage from "../../images/mainInvest.svg";
+import stock from "../../images/stockmarket.svg";
+import crypto from "../../images/crypto.svg";
+import realEstate from "../../images/realestate.jpg";
 import { Link } from "react-router-dom";
 // import { Stack } from "react-bootstrap";
 // import { Carousel } from "react-bootstrap";
-import coursesData from "./Data/CoursesData";
+import coursesData from "../../Data/CoursesData";
 
 const MainPage = () => {
   // const [showAlert, setShowAlert] = useState(true);

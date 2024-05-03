@@ -13,7 +13,7 @@ import { Link, useParams } from "react-router-dom";
 
 // import stockCards from "./Data/StockMarket/Stocks/StocksCards"
 
-const AssetCard = ({
+const AccordionCourse = ({
   assetName,
   assetImage,
   assetDetails,
@@ -82,4 +82,4 @@ const AssetCard = ({
     </div>
   );
 };
-export default AssetCard;
+export default AccordionCourse;

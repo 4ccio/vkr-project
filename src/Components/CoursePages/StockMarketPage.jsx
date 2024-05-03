@@ -1,13 +1,13 @@
 import { Box, Typography, Container, Stack } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
 
-import stock from "./images/stock3.svg";
-import stockIcon from "./images/stock_v2.svg";
-import bondsIcon from "./images/bonds.svg";
-import etfIcon from "./images/Frame.svg";
+import stock from "../../images/stock3.svg";
+import stockIcon from "../../images/stock_v2.svg";
+import bondsIcon from "../../images/bonds.svg";
+import etfIcon from "../../images/Frame.svg";
 
-import AssetCard from "./AssetCard";
-import CourseIntro from "./CourseIntro";
+import AccordionCourse from "./AccordionCourse";
+import IntroCourse from "./IntroCourse";
 
 import { useParams } from "react-router-dom";
 
@@ -45,11 +45,11 @@ const CoursePage = ({ data }) => {
           </Container>
         </Box>
 
-        <CourseIntro
+        <IntroCourse
           title={title}
           description={description}
           image={imageIntro}
-        ></CourseIntro>
+        ></IntroCourse>
 
         <Box component={"section"} className="course-elements">
           <Container>
@@ -110,7 +110,7 @@ const CoursePage = ({ data }) => {
                     ]}
                   ></AssetCard> */}
                   {assets.map((asset, index) => (
-                    <AssetCard
+                    <AccordionCourse
                       key={index}
                       assetName={asset.name}
                       assetImage={asset.image}

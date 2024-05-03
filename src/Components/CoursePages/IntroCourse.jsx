@@ -1,7 +1,7 @@
 import { Box, Typography, Container } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
 
-const CourseIntro = ({ title, description, image }) => {
+const IntroCourse = ({ title, description, image }) => {
   return (
     <section className="course-intro">
       <Box component={"section"} marginBottom={3}>
@@ -74,4 +74,4 @@ const CourseIntro = ({ title, description, image }) => {
     </section>
   );
 };
-export default CourseIntro;
+export default IntroCourse;

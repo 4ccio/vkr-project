@@ -7,10 +7,10 @@ import {
   responsiveFontSizes,
 } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
-import MainPage from "./MainPage";
-import CoursePage from "./CoursePage";
+import MainPage from "./MainPage/MainPage";
+import CoursePage from "./CoursePages/CoursePage";
 import SwipeCards from "./SwipeCards";
-import coursesData from "./Data/CoursesData";
+import coursesData from "../Data/CoursesData";
 
 let theme = createTheme({
   palette: {
