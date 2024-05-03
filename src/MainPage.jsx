@@ -10,6 +10,7 @@ import realEstate from "./images/realestate.jpg";
 import { Link } from "react-router-dom";
 // import { Stack } from "react-bootstrap";
 // import { Carousel } from "react-bootstrap";
+import coursesData from "./Data/CoursesData";
 
 const MainPage = () => {
   // const [showAlert, setShowAlert] = useState(true);
@@ -109,8 +110,11 @@ const MainPage = () => {
             gap={3}
           >
             <Box width={"300px"}>
-              <Link to={"/coursepage"}>
-                <InvestCard title={"Фондовый рынок"} image={stock}></InvestCard>
+              <Link to={`/${coursesData[0].id}`}>
+                <InvestCard
+                  title={`${coursesData[0].title}`}
+                  image={stock}
+                ></InvestCard>
               </Link>
             </Box>
             <Box width={"300px"}>

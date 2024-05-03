@@ -9,11 +9,16 @@ import {
 import CssBaseline from "@mui/material/CssBaseline";
 import MainPage from "./MainPage";
 import CoursePage from "./CoursePage";
+import SwipeCards from "./SwipeCards";
+import coursesData from "./Data/CoursesData";
 
 let theme = createTheme({
   palette: {
     primary: {
       main: "#3C3C3C",
+    },
+    secondary: {
+      main: "#FFFFFF",
     },
     background: {
       default: `#e9edf0`,
@@ -56,7 +61,15 @@ const App = () => {
       <CssBaseline />
       <BrowserRouter>
         <Routes>
-          <Route path="/coursepage" element={<CoursePage />} />
+          <Route
+            path="/:courseId"
+            element={<CoursePage data={coursesData} />}
+          />
+          <Route
+            path="/:courseId:/id"
+            element={<SwipeCards data={coursesData} />}
+          />
+
           <Route path="/" element={<MainPage />} />
         </Routes>
       </BrowserRouter>

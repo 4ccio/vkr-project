@@ -9,6 +9,9 @@ import {
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import AssetButton from "./AssetButton";
+import { Link, useParams } from "react-router-dom";
+
+// import stockCards from "./Data/StockMarket/Stocks/StocksCards"
 
 const AssetCard = ({
   assetName,
@@ -16,6 +19,8 @@ const AssetCard = ({
   assetDetails,
   assetButtonTitles,
 }) => {
+  const { courseId } = useParams();
+  console.log(courseId);
   return (
     <div>
       <Box>
@@ -65,7 +70,9 @@ const AssetCard = ({
               </Typography>
               <Stack spacing={2}>
                 {assetButtonTitles.map((item) => (
-                  <AssetButton key={item} title={item}></AssetButton>
+                  <Link to={`/${courseId}/${item.lessonId}`} key={item}>
+                    <AssetButton title={item.title}></AssetButton>
+                  </Link>
                 ))}
               </Stack>
             </Container>

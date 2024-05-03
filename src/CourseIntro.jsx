@@ -29,15 +29,18 @@ const CourseIntro = ({ title, description, image }) => {
                     </Typography>
                   </Box>
                   <Box>
-                    <Typography
-                      variant="body1"
-                      textAlign={"start"}
-                      sx={{
-                        fontSize: "1.1rem",
-                      }}
-                    >
-                      {description}
-                    </Typography>
+                    {description.map((item, index) => (
+                      <Typography
+                        key={index}
+                        variant="body1"
+                        textAlign={"start"}
+                        sx={{
+                          fontSize: "1.1rem",
+                        }}
+                      >
+                        {item}
+                      </Typography>
+                    ))}
                   </Box>
                 </Container>
               </Grid>
