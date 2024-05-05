@@ -1,29 +1,23 @@
-import { Box, Typography, Container, Stack } from "@mui/material";
+import { Box, Typography, Container, Stack, IconButton } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
-
-import stock from "../../images/stock3.svg";
-import stockIcon from "../../images/stock_v2.svg";
-import bondsIcon from "../../images/bonds.svg";
-import etfIcon from "../../images/Frame.svg";
+import { Link } from "react-router-dom";
+import ArrowBackRoundedIcon from "@mui/icons-material/ArrowBackRounded";
 
 import AccordionCourse from "./AccordionCourse";
 import IntroCourse from "./IntroCourse";
 
-import { useParams } from "react-router-dom";
+import data from "../../Data/CoursesData";
 
-const CoursePage = ({ data }) => {
-  const { courseId } = useParams();
-  // console.log("Data:", data);
-  // console.log("Course ID:", courseId);
+import Partners from "./Partners";
 
-  const course = data.find((course) => course.id === courseId);
-  // console.log("Course:", course);
+const StockMarketPage = ({ courseId }) => {
+  const courseData = data.find((course) => course.id === courseId);
 
-  if (!course) {
+  if (!courseData) {
     return <div>Course not found!</div>;
   }
 
-  const { title, description, imageIntro, assets } = course;
+  const { title, description, imageIntro, assets, partners } = courseData;
 
   return (
     <div>
@@ -38,9 +32,31 @@ const CoursePage = ({ data }) => {
               sx={{
                 display: "flex",
                 justifyContent: "center",
+                alignItems: "center",
+                position: "relative",
               }}
             >
-              <Typography variant="h1">Investika</Typography>
+              <IconButton
+                size="medium"
+                component={Link}
+                to={`/`}
+                sx={{
+                  position: "absolute",
+                  // left: { xs: "10%", sm: "2%" },
+                  left: { xs: "5%" },
+                }}
+              >
+                <ArrowBackRoundedIcon color="primary" />
+              </IconButton>
+              <Box
+                component={Link}
+                to={"/"}
+                sx={{
+                  color: "inherit",
+                }}
+              >
+                <Typography variant="h1">Investika</Typography>
+              </Box>
             </Box>
           </Container>
         </Box>
@@ -53,84 +69,89 @@ const CoursePage = ({ data }) => {
 
         <Box component={"section"} className="course-elements">
           <Container>
-            <Grid container justifyContent="center">
+            <Grid container justifyContent="center" spacing={4}>
               <Grid
                 xs={12}
-                // md={6}
+                md={6}
                 display={"flex"}
                 justifyContent={{ xs: "center" }}
+                marginBottom={3}
               >
                 <Stack spacing={2} maxWidth={"700px"}>
                   <Typography
                     variant="h3"
-                    gutterBottom={true}
+                    // gutterBottom={true}
                     textAlign={"center"}
                   >
                     Основные активы
                   </Typography>
-                  {/* <AssetCard
-                    assetName={"Акции"}
-                    assetImage={stockIcon}
-                    assetDetails={
-                      "Акция — это доля в компании, приобретая которую инвестор становится совладельцем бизнеса и может разделить его успехи и неудачи."
-                    }
-                    assetButtonTitles={[
-                      "Что такое акции",
-                      "Как заработать на акциях",
-                      "Почему акции дорожают",
-                      "Почему акции дешевеют",
-                      "Рынок российских акций",
-                    ]}
-                  ></AssetCard>
-                  <AssetCard
-                    assetName={"Облигации"}
-                    assetImage={bondsIcon}
-                    assetDetails={
-                      "Облигация — долговая расписка, которую выпускает компания или государство. Приобретая ее, инвестор получает в будущем сумму долга плюс проценты."
-                    }
-                    assetButtonTitles={[
-                      "Что такое облигации",
-                      "Как устроены облигации",
-                      "Какие бывают облигации",
-                      "Почему меняется цена облигаций",
-                      "Как и зачем покупать облигации",
-                    ]}
-                  ></AssetCard>
-                  <AssetCard
-                    assetName={"Биржевые фонды"}
-                    assetImage={etfIcon}
-                    assetDetails={
-                      "Биржевые фонды — готовые портфели разных ценных бумаг или других активов. Инвесторы могут купить доли в таких портфелях — паи фонда."
-                    }
-                    assetButtonTitles={[
-                      "Зачем нужны биржевые фонды",
-                      "Инвестируем в фонды акций",
-                      "В какие еще фонды можно инвестировать",
-                      "Как инвестору выбрать фонд",
-                    ]}
-                  ></AssetCard> */}
                   {assets.map((asset, index) => (
                     <AccordionCourse
                       key={index}
+                      assetId={asset.id}
                       assetName={asset.name}
                       assetImage={asset.image}
                       assetDetails={asset.details}
-                      assetButtonTitles={asset.cards}
+                      assetCards={asset.cards}
+                      courseId={courseId}
                     />
                   ))}
                 </Stack>
               </Grid>
-              {/* <Grid xs={12} md={6}>
-              <Box>
-                <Typography
-                  variant="h3"
-                  gutterBottom={true}
-                  textAlign={"center"}
-                >
-                  Где инвестировать?
-                </Typography>
-              </Box>
-            </Grid> */}
+              <Grid xs={12} md={6}>
+                <Box>
+                  <Typography
+                    variant="h3"
+                    // gutterBottom={true}
+                    marginBottom={2}
+                    textAlign={"center"}
+                  >
+                    Где инвестировать?
+                  </Typography>
+                  <Box
+                    sx={{
+                      backgroundColor: "white",
+                      borderRadius: 4,
+                      boxShadow: "0px 2px 5px rgb(166, 180, 200)",
+                      padding: 4,
+                    }}
+                  >
+                    <Typography
+                      gutterBottom={true}
+                      // sx={{
+                      //   textIndent: "20px",
+                      // }}
+                    >
+                      Чтобы начать инвестировать, необходимо обратиться к
+                      брокеру, который будет посредником между инвестором и
+                      компаниями.
+                    </Typography>
+                    <Typography
+                      textAlign={"center"}
+                      marginBottom={2}
+                      fontWeight={"500"}
+                    >
+                      Мы рекомендум следующих брокеров:
+                    </Typography>
+                    <Grid
+                      container
+                      justifyContent={"space-around"}
+                      // alignItems={"center"}
+                      spacing={2}
+                    >
+                      {partners.map((item) => (
+                        <Grid item key={item.title} xs={6}>
+                          <Partners
+                            image={item.image}
+                            title={item.title}
+                            link={item.link}
+                          ></Partners>
+                        </Grid>
+                      ))}
+                    </Grid>
+                  </Box>
+                </Box>
+              </Grid>
             </Grid>
           </Container>
         </Box>
@@ -139,4 +160,4 @@ const CoursePage = ({ data }) => {
   );
 };
 
-export default CoursePage;
+export default StockMarketPage;

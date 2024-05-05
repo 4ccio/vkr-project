@@ -8,7 +8,7 @@ import {
 } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import MainPage from "./MainPage/MainPage";
-import CoursePage from "./CoursePages/CoursePage";
+import CoursePage from "./CoursePages/StockMarketPage";
 import SwipeCards from "./SwipeCards";
 import coursesData from "../Data/CoursesData";
 
@@ -62,11 +62,11 @@ const App = () => {
       <BrowserRouter>
         <Routes>
           <Route
-            path="/:courseId"
-            element={<CoursePage data={coursesData} />}
+            path="/stock-market"
+            element={<CoursePage courseId={"stock-market"} />}
           />
           <Route
-            path="/:courseId:/id"
+            path="/:courseId/:assetId/:lessonId"
             element={<SwipeCards data={coursesData} />}
           />
 

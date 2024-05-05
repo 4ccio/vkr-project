@@ -4,14 +4,15 @@ import Grid from "@mui/material/Unstable_Grid2";
 const IntroCourse = ({ title, description, image }) => {
   return (
     <section className="course-intro">
-      <Box component={"section"} marginBottom={3}>
+      <Box marginBottom={3}>
         <Container>
           <Container
             sx={{
               padding: "20px 0 20px 0",
               backgroundColor: "#dfe4e9",
               borderRadius: 5,
-              boxShadow: "0px 3px 20px #A6B4C8",
+              // boxShadow: "0px 3px 20px #A6B4C8",
+              boxShadow: "inset 0px 0px 10px 2px #A6B4C8",
             }}
           >
             <Grid container alignItems={"center"}>
@@ -59,7 +60,6 @@ const IntroCourse = ({ title, description, image }) => {
                     sx={{
                       height: "auto",
                       maxHeight: 300,
-                      // width: 500,
                       objectFit: "contain",
                       maxWidth: "100%",
                       width: { xs: 250, sm: 300 },

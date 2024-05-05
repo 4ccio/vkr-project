@@ -1,4 +1,4 @@
-import * as React from "react";
+// import * as React from "react";
 import { useTheme } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import { Container, IconButton, Typography, styled } from "@mui/material";
@@ -9,8 +9,7 @@ import ArrowBackIosNew from "@mui/icons-material/ArrowBackIosNew";
 import CloseIcon from "@mui/icons-material/Close";
 import { Link, useParams } from "react-router-dom";
 import Markdown from "react-markdown";
-
-import data from "../Data/StockMarket/StocksCards";
+import { useState } from "react";
 
 const CustomIconButton = styled(IconButton)(({ theme }) => ({
   backgroundColor: "#3C3C3C",
@@ -32,15 +31,21 @@ const CustomIconButton = styled(IconButton)(({ theme }) => ({
   },
 }));
 
-function SwipeableTextMobileStepper({ corsesData }) {
-  const { courseId, id } = useParams();
-  const course = corsesData.find((course) => course.id === courseId);
-  const cards = course.console.log(courseId);
-  const theme = useTheme();
-  const [activeStep, setActiveStep] = React.useState(0);
-  // const maxSteps = cards.lessons[0].cards.length;
-  const cardsArray = data[0].cards;
+const findAsset = (data, courseId, assetId) => {
+  const courseData = data.find((course) => course.id === courseId);
+  const asset = courseData?.assets.find((asset) => asset.id === assetId);
+  return { asset };
+};
+
+function SwipeCards({ data }) {
+  const { courseId, assetId, lessonId } = useParams();
+  const { asset } = findAsset(data, courseId, assetId);
+  const assetCards = asset.cards;
+  const cardsArray = assetCards[lessonId].cards;
   const maxSteps = cardsArray.length;
+
+  const theme = useTheme();
+  const [activeStep, setActiveStep] = useState(0);
 
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
@@ -62,8 +67,8 @@ function SwipeableTextMobileStepper({ corsesData }) {
             display: "flex",
             flexDirection: "column",
             minHeight: "100vh",
-            paddingTop: 3,
-            paddingBottom: 3,
+            paddingTop: "5%",
+            paddingBottom: "5%",
             justifyContent: "space-around",
           }}
         >
@@ -77,16 +82,25 @@ function SwipeableTextMobileStepper({ corsesData }) {
           >
             <IconButton
               component={Link}
-              to={"/coursepage"}
+              to={`/${courseId}`}
               sx={{
                 position: "absolute",
-                left: { xs: "5%", sm: "15%" },
+                left: { xs: "5%", sm: "8%", md: "15%" },
               }}
             >
               <CloseIcon color="primary" />
             </IconButton>
-
-            <Typography variant="h4">{data[0].title}</Typography>
+            <Box maxWidth={"65%"}>
+              <Typography
+                variant="h4"
+                sx={{
+                  textAlign: "center",
+                  fontSize: "1.2rem",
+                }}
+              >
+                {assetCards[lessonId].title}
+              </Typography>
+            </Box>
           </Box>
           <Box>
             <Box
@@ -182,4 +196,4 @@ function SwipeableTextMobileStepper({ corsesData }) {
   );
 }
 
-export default SwipeableTextMobileStepper;
+export default SwipeCards;

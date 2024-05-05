@@ -4,6 +4,13 @@ import bondsIcon from "../images/bonds.svg";
 import etfIcon from "../images/Frame.svg";
 
 import stockCards from "./StockMarket/StocksCards";
+import bondCards from "./StockMarket/BondsCards";
+import etfCards from "./StockMarket/EtfCards";
+
+import tinkoff from "../images/tinkof.png";
+import sber from "../images/sber13.png";
+import alfa from "../images/alfa.png";
+import handshake from "../images/handshake.png";
 
 const coursesData = [
   {
@@ -13,13 +20,11 @@ const coursesData = [
       `Это место, где происходит обмен активами, аналогично
         торговым площадкам. Здесь встречаются спрос и предложение
         на акции, облигации, валюты и другие ценные бумаги.`,
-      `Чтобы начать инвестировать, необходимо обратиться к
-        брокеру, который будет посредником между инвестором и
-        компаниями, чьи акции будут покупаться или продаваться.`,
     ],
     imageIntro: stockIntro,
     assets: [
       {
+        id: "stocks",
         name: "Акции",
         image: stockIcon,
         details:
@@ -27,18 +32,42 @@ const coursesData = [
         cards: stockCards,
       },
       {
+        id: "bonds",
         name: "Облигации",
         image: bondsIcon,
         details:
           "Облигация — долговая расписка, которую выпускает компания или государство. Приобретая ее, инвестор получает в будущем сумму долга плюс проценты.",
-        cards: stockCards,
+        cards: bondCards,
       },
       {
+        id: "etf",
         name: "Биржевые фонды",
         image: etfIcon,
         details:
           "Биржевые фонды — готовые портфели разных ценных бумаг или других активов. Инвесторы могут купить доли в таких портфелях — паи фонда.",
-        cards: stockCards,
+        cards: etfCards,
+      },
+    ],
+    partners: [
+      {
+        title: "Тинькоф Инвестиции",
+        image: tinkoff,
+        link: "https://www.tinkoff.ru/invest/",
+      },
+      {
+        title: "Сбер Инвестиции",
+        image: sber,
+        link: "http://www.sberbank.ru/ru/person/investments/broker_service",
+      },
+      {
+        title: "Альфа-Инвестиции",
+        image: alfa,
+        link: "https://alfabank.ru/make-money/investments/brokerskij-schyot/",
+      },
+      {
+        title: "Ваша реклама",
+        image: handshake,
+        link: "https://github.com/4ccio",
       },
     ],
   },

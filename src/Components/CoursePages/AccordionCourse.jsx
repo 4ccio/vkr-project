@@ -9,18 +9,16 @@ import {
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import AssetButton from "./AssetButton";
-import { Link, useParams } from "react-router-dom";
-
-// import stockCards from "./Data/StockMarket/Stocks/StocksCards"
+import { Link } from "react-router-dom";
 
 const AccordionCourse = ({
+  assetId,
   assetName,
   assetImage,
   assetDetails,
-  assetButtonTitles,
+  assetCards,
+  courseId,
 }) => {
-  const { courseId } = useParams();
-  console.log(courseId);
   return (
     <div>
       <Box>
@@ -60,7 +58,7 @@ const AccordionCourse = ({
           <AccordionDetails>
             <Container>
               <Typography
-                marginBottom={1}
+                marginBottom={3}
                 sx={{
                   fontSize: "1rem",
                   fontWeight: "400",
@@ -69,8 +67,11 @@ const AccordionCourse = ({
                 {assetDetails}
               </Typography>
               <Stack spacing={2}>
-                {assetButtonTitles.map((item) => (
-                  <Link to={`/${courseId}/${item.lessonId}`} key={item}>
+                {assetCards.map((item) => (
+                  <Link
+                    to={`/${courseId}/${assetId}/${item.lessonId}`}
+                    key={item.lessonId}
+                  >
                     <AssetButton title={item.title}></AssetButton>
                   </Link>
                 ))}

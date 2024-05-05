@@ -1,5 +1,3 @@
-// import React, { useState } from "react";
-// import AlertDialogSlide from "./AlertDialogSlide";
 import { Box, Container, Stack, Typography } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
 import InvestCard from "./InvestCard";
@@ -8,28 +6,11 @@ import stock from "../../images/stockmarket.svg";
 import crypto from "../../images/crypto.svg";
 import realEstate from "../../images/realestate.jpg";
 import { Link } from "react-router-dom";
-// import { Stack } from "react-bootstrap";
-// import { Carousel } from "react-bootstrap";
 import coursesData from "../../Data/CoursesData";
 
 const MainPage = () => {
-  // const [showAlert, setShowAlert] = useState(true);
-
-  // const handleCloseAlert = () => {
-  //   setShowAlert(false);
-  // };
   return (
     <div>
-      {/* <AlertDialogSlide open={showAlert} onClose={handleCloseAlert} /> */}
-      {/* {showAlert && (
-        <Backdrop
-          sx={{
-            backdropFilter: "blur(5px)",
-          }}
-          open={showAlert}
-          onClick={handleCloseAlert}
-        ></Backdrop>
-      )} */}
       <Box component={"header"}>
         <Container
           sx={{
@@ -42,7 +23,15 @@ const MainPage = () => {
               justifyContent: "center",
             }}
           >
-            <Typography variant="h1">Investika</Typography>
+            <Box
+              component={Link}
+              to={"/"}
+              sx={{
+                color: "inherit",
+              }}
+            >
+              <Typography variant="h1">Investika</Typography>
+            </Box>
           </Box>
         </Container>
       </Box>
@@ -110,7 +99,7 @@ const MainPage = () => {
             gap={3}
           >
             <Box width={"300px"}>
-              <Link to={`/${coursesData[0].id}`}>
+              <Link to={`/stock-market`}>
                 <InvestCard
                   title={`${coursesData[0].title}`}
                   image={stock}

@@ -28,8 +28,6 @@ const AssetButton = ({ title }) => {
         <Box>
           <Box>
             <Typography
-              // variant="h5"
-              // whiteSpace={"nowrap"}
               sx={{
                 fontSize: "1rem",
               }}
