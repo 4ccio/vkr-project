@@ -118,6 +118,7 @@ const StockMarketPage = ({ courseId }) => {
                   >
                     <Typography
                       gutterBottom={true}
+                      textAlign={"center"}
                       // sx={{
                       //   textIndent: "20px",
                       // }}

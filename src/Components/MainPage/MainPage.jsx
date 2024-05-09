@@ -3,7 +3,7 @@ import Grid from "@mui/material/Unstable_Grid2";
 import InvestCard from "./InvestCard";
 import mainImage from "../../images/mainInvest.svg";
 import stock from "../../images/stockmarket.svg";
-import crypto from "../../images/crypto.svg";
+import crypto from "../../images/cryptoIntro1.svg";
 import realEstate from "../../images/realestate.jpg";
 import { Link } from "react-router-dom";
 import coursesData from "../../Data/CoursesData";
@@ -107,7 +107,12 @@ const MainPage = () => {
               </Link>
             </Box>
             <Box width={"300px"}>
-              <InvestCard title={"Криптовалюта"} image={crypto}></InvestCard>
+              <Link to={"/crypto"}>
+                <InvestCard
+                  title={`${coursesData[1].title}`}
+                  image={crypto}
+                ></InvestCard>
+              </Link>
             </Box>
             <Box width={"300px"}>
               <InvestCard

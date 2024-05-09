@@ -8,7 +8,8 @@ import {
 } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import MainPage from "./MainPage/MainPage";
-import CoursePage from "./CoursePages/StockMarketPage";
+import StockMarketPage from "./CoursePages/StockMarketPage";
+import CryptoPage from "./CoursePages/CryptoPage";
 import SwipeCards from "./SwipeCards";
 import coursesData from "../Data/CoursesData";
 
@@ -63,8 +64,9 @@ const App = () => {
         <Routes>
           <Route
             path="/stock-market"
-            element={<CoursePage courseId={"stock-market"} />}
+            element={<StockMarketPage courseId={"stock-market"} />}
           />
+          <Route path="/crypto" element={<CryptoPage courseId={"crypto"} />} />
           <Route
             path="/:courseId/:assetId/:lessonId"
             element={<SwipeCards data={coursesData} />}
