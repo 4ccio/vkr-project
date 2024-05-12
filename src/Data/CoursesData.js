@@ -15,6 +15,7 @@ import stockCards from "./StockMarket/StocksCards";
 import bondCards from "./StockMarket/BondsCards";
 import etfCards from "./StockMarket/EtfCards";
 import cryptoCards from "./Crypto/CryptoCards";
+import realEstateCards from "./RealEstate/RealEstateCards";
 
 import tinkoff from "../images/tinkof.png";
 import sber from "../images/sber13.png";
@@ -150,17 +151,17 @@ const coursesData = [
       {
         id: "realEstate_intro",
         name: "Введение",
-        cards: cryptoCards,
+        cards: realEstateCards,
       },
       {
         id: "realEstate_aspects",
         name: "Финансовые аспекты",
-        cards: cryptoCards,
+        cards: realEstateCards,
       },
       {
-        id: "realEstate_search",
-        name: "Поиск и анализ недвижимости",
-        cards: cryptoCards,
+        id: "realEstate_earn",
+        name: "Как заработать",
+        cards: realEstateCards,
       },
       // {
       //   id: "realEstate_managment",
