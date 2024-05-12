@@ -8,7 +8,7 @@ import etfIcon from "../images/etfIcon.svg";
 
 import whatIsCrypto from "../images/whatIsCrypto.jpg";
 import blockchain from "../images/blockchain.jpg";
-import howCryptoMade from "../images/howCryptoMade.jpg";
+import howCryptoMade from "../images/cryptomade.jpg";
 import significantCrypto from "../images/significantCrypto.jpg";
 
 import stockCards from "./StockMarket/StocksCards";
