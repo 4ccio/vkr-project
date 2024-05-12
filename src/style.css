@@ -1,16 +1,3 @@
-:root {
-  --dkblue: #0d314b;
-  --dgreen: #025159;
-  --green: #038c8c;
-  --lgreen: #03a696;
-  --orange: #f28705;
-  --color2: #dfe4e9;
-  --montserrat: "Montserrat", sans-serif;
-  --ysabeau: "Ysabeau Office", sans-serif;
-  --ys_inf: "Ysabeau Infant", sans-serif;
-  --raleway: "Raleway", sans-serif;
-  /* --hind: 'Hind Siliguri', sans-serif; */
-}
 html {
   box-sizing: border-box;
 }
