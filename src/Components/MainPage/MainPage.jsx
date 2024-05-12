@@ -1,14 +1,85 @@
 import { Box, Container, Stack, Typography } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
-import InvestCard from "./InvestCard";
-import mainImage from "../../images/mainInvest.svg";
-import stock from "../../images/stockmarket.svg";
-import crypto from "../../images/cryptoIntro1.svg";
-import realEstate from "../../images/realestate.jpg";
+import { useMediaQuery } from "@mui/material";
+
 import { Link } from "react-router-dom";
+
+import InvestCard from "./InvestCard";
 import coursesData from "../../Data/CoursesData";
 
+import mainImage from "../../images/mainInvest.svg";
+import stock from "../../images/stockmarketMain.svg";
+import crypto from "../../images/cryptoMain.svg";
+import realEstate from "../../images/realEstateMain.svg";
+
+import SwipeableViews from "react-swipeable-views-react-18-fix";
+import { virtualize } from "react-swipeable-views-utils";
+import { mod } from "react-swipeable-views-core";
+
+const styles = {
+  slide: {
+    display: "flex",
+    justifyContent: "center",
+    paddingTop: "10px",
+    paddingBottom: "10px",
+  },
+};
+
+function slideRenderer(params) {
+  const { index, key } = params;
+
+  switch (mod(index, 3)) {
+    case 0:
+      return (
+        <div key={key} style={styles.slide}>
+          <Box width={"300px"}>
+            <Link to={`/stock-market`}>
+              <InvestCard
+                title={`${coursesData[0].title}`}
+                image={stock}
+              ></InvestCard>
+            </Link>
+          </Box>
+        </div>
+      );
+
+    case 1:
+      return (
+        <div key={key} style={styles.slide}>
+          <Box width={"300px"}>
+            <Link to={"/crypto"}>
+              <InvestCard
+                title={`${coursesData[1].title}`}
+                image={crypto}
+              ></InvestCard>
+            </Link>
+          </Box>
+        </div>
+      );
+
+    case 2:
+      return (
+        <div key={key} style={styles.slide}>
+          <Box width={"300px"}>
+            <Link to={"/real-estate"}>
+              <InvestCard
+                title={"Недвижимость"}
+                image={realEstate}
+              ></InvestCard>
+            </Link>
+          </Box>
+        </div>
+      );
+
+    default:
+      return null;
+  }
+}
+
 const MainPage = () => {
+  const VirtualizeSwipeableViews = virtualize(SwipeableViews);
+
+  const isSmallScreen = useMediaQuery((theme) => theme.breakpoints.down("sm"));
   return (
     <div>
       <Box component={"header"}>
@@ -91,38 +162,54 @@ const MainPage = () => {
           <Typography variant="h3" mb={3} sx={{ textAlign: { xs: "center" } }}>
             Сферы инвестирования
           </Typography>
-          <Stack
-            direction={{ xs: "column", md: "row" }}
-            justifyContent={{ xs: "center", md: "space-between" }}
-            alignItems={{ xs: "center", md: "flex-start" }}
-            useFlexGap
-            gap={3}
-          >
-            <Box width={"300px"}>
-              <Link to={`/stock-market`}>
-                <InvestCard
-                  title={`${coursesData[0].title}`}
-                  image={stock}
-                ></InvestCard>
-              </Link>
-            </Box>
-            <Box width={"300px"}>
-              <Link to={"/crypto"}>
-                <InvestCard
-                  title={`${coursesData[1].title}`}
-                  image={crypto}
-                ></InvestCard>
-              </Link>
-            </Box>
-            <Box width={"300px"}>
-              <Link to={"/real-estate"}>
-                <InvestCard
-                  title={"Недвижимость"}
-                  image={realEstate}
-                ></InvestCard>
-              </Link>
-            </Box>
-          </Stack>
+          <Box>
+            {isSmallScreen ? (
+              <Box>
+                <VirtualizeSwipeableViews
+                  slideRenderer={slideRenderer}
+                  style={{
+                    padding: "0 35px",
+                  }}
+                  slideStyle={{
+                    padding: "0 10px",
+                  }}
+                />
+              </Box>
+            ) : (
+              <Stack
+                direction={{ xs: "column", md: "row" }}
+                justifyContent={{ xs: "center", md: "space-between" }}
+                alignItems={{ xs: "center", md: "flex-start" }}
+                useFlexGap
+                gap={3}
+              >
+                <Box width={"300px"}>
+                  <Link to={`/stock-market`}>
+                    <InvestCard
+                      title={`${coursesData[0].title}`}
+                      image={stock}
+                    ></InvestCard>
+                  </Link>
+                </Box>
+                <Box width={"300px"}>
+                  <Link to={"/crypto"}>
+                    <InvestCard
+                      title={`${coursesData[1].title}`}
+                      image={crypto}
+                    ></InvestCard>
+                  </Link>
+                </Box>
+                <Box width={"300px"}>
+                  <Link to={"/real-estate"}>
+                    <InvestCard
+                      title={"Недвижимость"}
+                      image={realEstate}
+                    ></InvestCard>
+                  </Link>
+                </Box>
+              </Stack>
+            )}
+          </Box>
         </Container>
       </Box>
     </div>

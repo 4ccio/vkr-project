@@ -5,10 +5,9 @@ import ArrowBackRoundedIcon from "@mui/icons-material/ArrowBackRounded";
 
 import AccordionCourse from "./AccordionCourse";
 import IntroCourse from "./IntroCourse";
+import Partners from "./Partners";
 
 import data from "../../Data/CoursesData";
-
-import Partners from "./Partners";
 
 const StockMarketPage = ({ courseId }) => {
   const courseData = data.find((course) => course.id === courseId);
@@ -42,7 +41,6 @@ const StockMarketPage = ({ courseId }) => {
                 to={`/`}
                 sx={{
                   position: "absolute",
-                  // left: { xs: "10%", sm: "2%" },
                   left: { xs: "5%" },
                 }}
               >
@@ -78,11 +76,7 @@ const StockMarketPage = ({ courseId }) => {
                 marginBottom={3}
               >
                 <Stack spacing={2} maxWidth={"700px"}>
-                  <Typography
-                    variant="h3"
-                    // gutterBottom={true}
-                    textAlign={"center"}
-                  >
+                  <Typography variant="h3" textAlign={"center"}>
                     Основные активы
                   </Typography>
                   {assets.map((asset, index) => (
@@ -102,7 +96,6 @@ const StockMarketPage = ({ courseId }) => {
                 <Box>
                   <Typography
                     variant="h3"
-                    // gutterBottom={true}
                     marginBottom={2}
                     textAlign={"center"}
                   >
@@ -116,13 +109,7 @@ const StockMarketPage = ({ courseId }) => {
                       padding: 4,
                     }}
                   >
-                    <Typography
-                      gutterBottom={true}
-                      textAlign={"center"}
-                      // sx={{
-                      //   textIndent: "20px",
-                      // }}
-                    >
+                    <Typography gutterBottom={true} textAlign={"center"}>
                       Чтобы начать инвестировать, необходимо обратиться к
                       брокеру, который будет посредником между инвестором и
                       компаниями.
@@ -134,12 +121,7 @@ const StockMarketPage = ({ courseId }) => {
                     >
                       Мы рекомендум следующих брокеров:
                     </Typography>
-                    <Grid
-                      container
-                      justifyContent={"space-around"}
-                      // alignItems={"center"}
-                      spacing={2}
-                    >
+                    <Grid container justifyContent={"space-around"} spacing={2}>
                       {partners.map((item) => (
                         <Grid item key={item.title} xs={6}>
                           <Partners

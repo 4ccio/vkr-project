@@ -1,16 +1,32 @@
+import { useMediaQuery } from "@mui/material";
+
 import { Box, Container, IconButton, Typography } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
 
 import ArrowBackRoundedIcon from "@mui/icons-material/ArrowBackRounded";
+
 import { Link } from "react-router-dom";
+import SwipeableViews from "react-swipeable-views-react-18-fix";
+
 import IntroCourse from "./IntroCourse";
-
-import data from "../../Data/CoursesData";
-
 import CryptoLesson from "./CryptoLesson";
 import Partners from "./Partners";
 
+import data from "../../Data/CoursesData";
+
+const styles = {
+  slide: {
+    maxWidth: "200px",
+    display: "flex",
+    justifyContent: "center",
+    paddingTop: "10px",
+    paddingBottom: "10px",
+  },
+};
+
 const CryptoPage = ({ courseId }) => {
+  const isSmallScreen = useMediaQuery((theme) => theme.breakpoints.down("sm"));
+
   const courseData = data.find((course) => course.id === courseId);
 
   if (!courseData) {
@@ -67,37 +83,57 @@ const CryptoPage = ({ courseId }) => {
           <Container>
             <Box>
               <Grid container spacing={4}>
-                <Grid
-                  xs={12}
-                  sm={6}
-                  container
-                  spacing={2}
-                  justifyContent={"space-around"}
-                >
-                  {assets.map((asset, index) => (
-                    <Grid
-                      key={asset.id}
-                      xs={12}
-                      sm={6}
-                      display={"flex"}
-                      justifyContent={"center"}
+                {isSmallScreen ? (
+                  <Grid>
+                    <SwipeableViews
+                      style={{
+                        padding: "0 64px",
+                      }}
+                      slideStyle={{
+                        padding: "0 36px",
+                      }}
                     >
-                      <Link
-                        to={`/${courseId}/${asset.id}/${asset.cards[index].lessonId}`}
+                      {assets.map((asset, index) => (
+                        <div key={asset.id} style={styles.slide}>
+                          <Link
+                            to={`/${courseId}/${asset.id}/${asset.cards[index].lessonId}`}
+                          >
+                            <CryptoLesson
+                              image={asset.image}
+                              title={asset.name}
+                            ></CryptoLesson>
+                          </Link>
+                        </div>
+                      ))}
+                    </SwipeableViews>
+                  </Grid>
+                ) : (
+                  <Grid xs={12} md={6} container spacing={2}>
+                    {assets.map((asset, index) => (
+                      <Grid
+                        key={asset.id}
+                        xs={12}
+                        sm={6}
+                        display={"flex"}
+                        justifyContent={"center"}
                       >
-                        <CryptoLesson
-                          image={asset.image}
-                          title={asset.name}
-                        ></CryptoLesson>
-                      </Link>
-                    </Grid>
-                  ))}
-                </Grid>
+                        <Link
+                          to={`/${courseId}/${asset.id}/${asset.cards[index].lessonId}`}
+                        >
+                          <CryptoLesson
+                            image={asset.image}
+                            title={asset.name}
+                          ></CryptoLesson>
+                        </Link>
+                      </Grid>
+                    ))}
+                  </Grid>
+                )}
+
                 <Grid xs={12} md={6}>
                   <Box>
                     <Typography
                       variant="h3"
-                      // gutterBottom={true}
                       marginBottom={2}
                       textAlign={"center"}
                     >
@@ -111,13 +147,7 @@ const CryptoPage = ({ courseId }) => {
                         padding: 4,
                       }}
                     >
-                      <Typography
-                        gutterBottom={true}
-                        textAlign={"center"}
-                        // sx={{
-                        //   textIndent: "20px",
-                        // }}
-                      >
+                      <Typography gutterBottom={true} textAlign={"center"}>
                         Криптовалюту можно купить на различных криптовалютных
                         биржах или обменниках, которые предлагают услуги обмена
                         цифровых активов на традиционные валюты или другие
@@ -133,7 +163,6 @@ const CryptoPage = ({ courseId }) => {
                       <Grid
                         container
                         justifyContent={"space-around"}
-                        // alignItems={"center"}
                         spacing={2}
                       >
                         {partners.map((item) => (

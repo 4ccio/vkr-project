@@ -8,9 +8,7 @@ export default function InvestCard({ title, image }) {
   return (
     <div>
       <Card
-        // elevation={2}
         sx={{
-          // maxWidth: 245,
           height: "auto",
           borderRadius: "10px",
           boxShadow: "0px 2px 5px rgb(166, 180, 200)",

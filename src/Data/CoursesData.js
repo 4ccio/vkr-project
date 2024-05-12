@@ -1,15 +1,15 @@
-import stockIntro from "../images/stock3.svg";
-import cryptoIntro from "../images/crypto1.svg";
-import realEstateIntro from "../images/realEstateIntro2.svg";
+import stockIntro from "../images/stockIntro.svg";
+import cryptoIntro from "../images/cryptoIntro.svg";
+import realEstateIntro from "../images/realEstateIntro.svg";
 
-import stockIcon from "../images/stock_v2.svg";
-import bondsIcon from "../images/bonds.svg";
-import etfIcon from "../images/Frame.svg";
+import stockIcon from "../images/stockIcon.svg";
+import bondsIcon from "../images/bondsIcon.svg";
+import etfIcon from "../images/etfIcon.svg";
 
-import whatIsCrypto from "../images/cryptoFirst.jpg";
+import whatIsCrypto from "../images/whatIsCrypto.jpg";
 import blockchain from "../images/blockchain.jpg";
-import howCryptoMade from "../images/howcryptomade.jpg";
-import significantCrypto from "../images/importantcrypto.jpg";
+import howCryptoMade from "../images/howCryptoMade.jpg";
+import significantCrypto from "../images/significantCrypto.jpg";
 
 import stockCards from "./StockMarket/StocksCards";
 import bondCards from "./StockMarket/BondsCards";
@@ -17,13 +17,16 @@ import etfCards from "./StockMarket/EtfCards";
 import cryptoCards from "./Crypto/CryptoCards";
 import realEstateCards from "./RealEstate/RealEstateCards";
 
-import tinkoff from "../images/tinkof.png";
-import sber from "../images/sber13.png";
+import tinkoff from "../images/tinkoff.png";
+import sber from "../images/sber.png";
 import alfa from "../images/alfa.png";
 import handshake from "../images/handshake.png";
 import bybit from "../images/bybit.png";
 import oxk from "../images/OKX.png";
 import gateio from "../images/gateio.png";
+import cian from "../images/cian.jpg";
+import domclick from "../images/domclick.png";
+import pik from "../images/pik.png";
 
 const coursesData = [
   {
@@ -163,27 +166,22 @@ const coursesData = [
         name: "Как заработать",
         cards: realEstateCards,
       },
-      // {
-      //   id: "realEstate_managment",
-      //   name: "Управление и увеличение стоимости недвижимости",
-      //   cards: cryptoCards,
-      // },
     ],
     partners: [
       {
-        title: "Bybit",
-        image: bybit,
-        link: "https://www.bybit.com/ru-RU",
+        title: "Циан",
+        image: cian,
+        link: "https://cian.ru/",
       },
       {
-        title: "OKX",
-        image: oxk,
-        link: "http://www.sberbank.ru/ru/person/investments/broker_service",
+        title: "Домклик",
+        image: domclick,
+        link: "https://domclick.ru/",
       },
       {
-        title: "Gate.io",
-        image: gateio,
-        link: "https://www.gate.io/ru",
+        title: "ПИК",
+        image: pik,
+        link: "https://www.pik.ru/",
       },
       {
         title: "Ваша реклама",

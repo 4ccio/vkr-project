@@ -1,4 +1,3 @@
-// import * as React from "react";
 import { useTheme } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import { Container, IconButton, Typography, styled } from "@mui/material";
@@ -123,7 +122,6 @@ function SwipeCards({ data }) {
               enableMouseEvents
               style={{ position: "relative" }}
             >
-              {/* {cards.lessons[0].cards.map((step, index) => ( */}
               {cardsArray.map((step, index) => (
                 <Box padding={1} key={step}>
                   {Math.abs(activeStep - index) <= 2 ? (

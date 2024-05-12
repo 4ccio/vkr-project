@@ -7,9 +7,9 @@ import { Link } from "react-router-dom";
 
 import IntroCourse from "./IntroCourse";
 import Partners from "./Partners";
+import AssetButton from "./AssetButton";
 
 import data from "../../Data/CoursesData";
-import AssetButton from "./AssetButton";
 
 const RealEstatePage = ({ courseId }) => {
   const courseData = data.find((course) => course.id === courseId);
@@ -75,7 +75,6 @@ const RealEstatePage = ({ courseId }) => {
                   display={"flex"}
                   justifyContent={"center"}
                   alignItems={"center"}
-                  // justifyContent={"space-around"}
                 >
                   <Box
                     sx={{
@@ -114,7 +113,6 @@ const RealEstatePage = ({ courseId }) => {
                   <Box>
                     <Typography
                       variant="h3"
-                      // gutterBottom={true}
                       marginBottom={2}
                       textAlign={"center"}
                     >
@@ -128,29 +126,16 @@ const RealEstatePage = ({ courseId }) => {
                         padding: 4,
                       }}
                     >
-                      <Typography
-                        gutterBottom={true}
-                        textAlign={"center"}
-                        // sx={{
-                        //   textIndent: "20px",
-                        // }}
-                      >
-                        Криптовалюту можно купить на различных криптовалютных
-                        биржах или обменниках, которые предлагают услуги обмена
-                        цифровых активов на традиционные валюты или другие
-                        криптовалюты.
+                      <Typography marginBottom={3} textAlign={"center"}>
+                        Множество онлайн-платформ предлагают широкий выбор
+                        недвижимости для продажи. Вы можете использовать сайты и
+                        приложения для поиска объектов по различным критериям,
+                        таким как местоположение, тип и цена.
                       </Typography>
-                      <Typography
-                        textAlign={"center"}
-                        marginBottom={2}
-                        fontWeight={"500"}
-                      >
-                        Рекомендуемые криптобиржи и обменники
-                      </Typography>
+
                       <Grid
                         container
                         justifyContent={"space-around"}
-                        // alignItems={"center"}
                         spacing={2}
                       >
                         {partners.map((item) => (
