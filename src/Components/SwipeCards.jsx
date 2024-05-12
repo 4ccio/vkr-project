@@ -39,7 +39,6 @@ const findAsset = (data, courseId, assetId) => {
 
 function SwipeCards({ data }) {
   const { courseId, assetId, lessonId } = useParams();
-  console.log(lessonId);
   const { asset } = findAsset(data, courseId, assetId);
   const assetCards = asset.cards;
   const cardsArray = assetCards[lessonId].cards;

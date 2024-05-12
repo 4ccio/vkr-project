@@ -1,16 +1,17 @@
-import { Box, Container, IconButton, Typography } from "@mui/material";
+import { Box, Container, IconButton, Stack, Typography } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
 
 import ArrowBackRoundedIcon from "@mui/icons-material/ArrowBackRounded";
+
 import { Link } from "react-router-dom";
+
 import IntroCourse from "./IntroCourse";
-
-import data from "../../Data/CoursesData";
-
-import CryptoLesson from "./CryptoLesson";
 import Partners from "./Partners";
 
-const CryptoPage = ({ courseId }) => {
+import data from "../../Data/CoursesData";
+import AssetButton from "./AssetButton";
+
+const RealEstatePage = ({ courseId }) => {
   const courseData = data.find((course) => course.id === courseId);
 
   if (!courseData) {
@@ -70,28 +71,44 @@ const CryptoPage = ({ courseId }) => {
                 <Grid
                   xs={12}
                   sm={6}
-                  container
                   spacing={2}
-                  justifyContent={"space-around"}
+                  display={"flex"}
+                  justifyContent={"center"}
+                  alignItems={"center"}
+                  // justifyContent={"space-around"}
                 >
-                  {assets.map((asset, index) => (
-                    <Grid
-                      key={asset.id}
-                      xs={12}
-                      sm={6}
-                      display={"flex"}
-                      justifyContent={"center"}
+                  <Box
+                    sx={{
+                      backgroundColor: "white",
+                      borderRadius: 4,
+                      boxShadow: "0px 2px 5px rgb(166, 180, 200)",
+                      padding: 4,
+                    }}
+                  >
+                    <Typography
+                      variant="h4"
+                      textAlign={"center"}
+                      marginBottom={3}
                     >
-                      <Link
-                        to={`/${courseId}/${asset.id}/${asset.cards[index].lessonId}`}
-                      >
-                        <CryptoLesson
-                          image={asset.image}
-                          title={asset.name}
-                        ></CryptoLesson>
-                      </Link>
-                    </Grid>
-                  ))}
+                      Основы инвестирования в недвижимость
+                    </Typography>
+                    <Typography marginBottom={3}>
+                      При быстром увеличении уровня инфляции возникает важный
+                      вопрос о сохранении и приумножении накоплений. Один из
+                      востребованных вариантов — вложение средств в
+                      недвижимость.
+                    </Typography>
+                    <Stack spacing={3}>
+                      {assets.map((asset, index) => (
+                        <Link
+                          key={asset.id}
+                          to={`/${courseId}/${asset.id}/${asset.cards[index].lessonId}`}
+                        >
+                          <AssetButton title={asset.name}></AssetButton>
+                        </Link>
+                      ))}
+                    </Stack>
+                  </Box>
                 </Grid>
                 <Grid xs={12} md={6}>
                   <Box>
@@ -158,4 +175,4 @@ const CryptoPage = ({ courseId }) => {
   );
 };
 
-export default CryptoPage;
+export default RealEstatePage;

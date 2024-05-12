@@ -1,5 +1,6 @@
 import stockIntro from "../images/stock3.svg";
 import cryptoIntro from "../images/crypto1.svg";
+import realEstateIntro from "../images/realEstateIntro2.svg";
 
 import stockIcon from "../images/stock_v2.svg";
 import bondsIcon from "../images/bonds.svg";
@@ -86,7 +87,7 @@ const coursesData = [
     id: "crypto",
     title: "Криптовалюта",
     description: [
-      `Криптовалюты стали одной из наиболее обсуждаемых тем в последние годы. Мы все видели, как биткоин, начиная с непонятной концепции, в течение недолгого времени превратился в ценный финансовый актив, который привлекает внимание инвесторов, трейдеров, специалистов в области информационных технологий и бизнесменов`,
+      `Криптовалюты стали одной из наиболее обсуждаемых тем в последние годы. Мы все видели, как биткоин, начиная с непонятной концепции, в течение недолгого времени превратился в ценный финансовый актив, который привлекает внимание инвесторов, трейдеров, специалистов в области информационных технологий и бизнесменов.`,
     ],
     imageIntro: cryptoIntro,
     assets: [
@@ -114,6 +115,58 @@ const coursesData = [
         image: significantCrypto,
         cards: cryptoCards,
       },
+    ],
+    partners: [
+      {
+        title: "Bybit",
+        image: bybit,
+        link: "https://www.bybit.com/ru-RU",
+      },
+      {
+        title: "OKX",
+        image: oxk,
+        link: "https://www.okx.com/ru",
+      },
+      {
+        title: "Gate.io",
+        image: gateio,
+        link: "https://www.gate.io/ru",
+      },
+      {
+        title: "Ваша реклама",
+        image: handshake,
+        link: "https://github.com/4ccio",
+      },
+    ],
+  },
+  {
+    id: "real-estate",
+    title: "Недвижимость",
+    description: [
+      `В последние годы вложение средств в недвижимость стало одним из наиболее надежных и доходных способов инвестирования. С учетом постоянного увеличения стоимости жилья и развития рынка недвижимости, многие инвесторы обращают внимание на этот сектор экономики.`,
+    ],
+    imageIntro: realEstateIntro,
+    assets: [
+      {
+        id: "realEstate_intro",
+        name: "Введение",
+        cards: cryptoCards,
+      },
+      {
+        id: "realEstate_aspects",
+        name: "Финансовые аспекты",
+        cards: cryptoCards,
+      },
+      {
+        id: "realEstate_search",
+        name: "Поиск и анализ недвижимости",
+        cards: cryptoCards,
+      },
+      // {
+      //   id: "realEstate_managment",
+      //   name: "Управление и увеличение стоимости недвижимости",
+      //   cards: cryptoCards,
+      // },
     ],
     partners: [
       {

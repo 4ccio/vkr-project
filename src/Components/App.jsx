@@ -12,6 +12,7 @@ import StockMarketPage from "./CoursePages/StockMarketPage";
 import CryptoPage from "./CoursePages/CryptoPage";
 import SwipeCards from "./SwipeCards";
 import coursesData from "../Data/CoursesData";
+import RealEstatePage from "./CoursePages/RealEstatePage";
 
 let theme = createTheme({
   palette: {
@@ -67,6 +68,10 @@ const App = () => {
             element={<StockMarketPage courseId={"stock-market"} />}
           />
           <Route path="/crypto" element={<CryptoPage courseId={"crypto"} />} />
+          <Route
+            path="/real-estate"
+            element={<RealEstatePage courseId={"real-estate"} />}
+          />
           <Route
             path="/:courseId/:assetId/:lessonId"
             element={<SwipeCards data={coursesData} />}

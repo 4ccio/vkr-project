@@ -115,10 +115,12 @@ const MainPage = () => {
               </Link>
             </Box>
             <Box width={"300px"}>
-              <InvestCard
-                title={"Недвижимость"}
-                image={realEstate}
-              ></InvestCard>
+              <Link to={"/real-estate"}>
+                <InvestCard
+                  title={"Недвижимость"}
+                  image={realEstate}
+                ></InvestCard>
+              </Link>
             </Box>
           </Stack>
         </Container>
