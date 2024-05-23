@@ -76,7 +76,6 @@ const App = () => {
             path="/:courseId/:assetId/:lessonId"
             element={<SwipeCards data={coursesData} />}
           />
-
           <Route path="/" element={<MainPage />} />
         </Routes>
       </BrowserRouter>
