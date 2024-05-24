@@ -87,10 +87,10 @@ const CryptoPage = ({ courseId }) => {
                   <Grid>
                     <SwipeableViews
                       style={{
-                        padding: "0 64px",
+                        padding: "0 20%",
                       }}
                       slideStyle={{
-                        padding: "0 36px",
+                        padding: "0 5%",
                       }}
                     >
                       {assets.map((asset, index) => (

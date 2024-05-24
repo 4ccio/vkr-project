@@ -10,7 +10,7 @@ import CssBaseline from "@mui/material/CssBaseline";
 import MainPage from "./MainPage/MainPage";
 import StockMarketPage from "./CoursePages/StockMarketPage";
 import CryptoPage from "./CoursePages/CryptoPage";
-import SwipeCards from "./SwipeCards";
+import SwipeCards from "./SwipebleCards/MainSwipeCards";
 import coursesData from "../Data/CoursesData";
 import RealEstatePage from "./CoursePages/RealEstatePage";
 

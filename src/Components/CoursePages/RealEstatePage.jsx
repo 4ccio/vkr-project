@@ -111,13 +111,6 @@ const RealEstatePage = ({ courseId }) => {
                 </Grid>
                 <Grid xs={12} md={6}>
                   <Box>
-                    <Typography
-                      variant="h3"
-                      marginBottom={2}
-                      textAlign={"center"}
-                    >
-                      Где купить криптовалюту?
-                    </Typography>
                     <Box
                       sx={{
                         backgroundColor: "white",
