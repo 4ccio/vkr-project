@@ -1,7 +1,13 @@
 import { Stack, Box, Typography } from "@mui/material";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
-const AssetButton = ({ title, peakProgress, peakScore, totalQuestions }) => {
+const AssetButton = ({
+  title,
+  peakProgress,
+  peakScore,
+  totalQuestions,
+  lastScore,
+}) => {
   return (
     <Stack spacing={2}>
       <Box
@@ -29,7 +35,8 @@ const AssetButton = ({ title, peakProgress, peakScore, totalQuestions }) => {
           <Box>
             <Typography sx={{ fontSize: "1rem" }}>{title}</Typography>
             <Typography textAlign={"left"} sx={{ fontSize: "0.875rem" }}>
-              {peakProgress.toFixed(0)}% | {peakScore}/{totalQuestions}
+              {peakProgress.toFixed(0)}% | {peakScore}/{totalQuestions} |{" "}
+              {lastScore}/{totalQuestions}
             </Typography>
             {/* <Typography textAlign={"center"} sx={{ fontSize: "0.875rem" }}>
               Peak Score: {peakScore}/{totalQuestions}

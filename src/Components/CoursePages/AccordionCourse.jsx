@@ -20,6 +20,7 @@ const AccordionCourse = ({
   courseId,
   getPeakProgress,
   getPeakScore,
+  getLastScore,
 }) => {
   return (
     <div>
@@ -74,6 +75,12 @@ const AccordionCourse = ({
                     assetId,
                     item.lessonId
                   );
+                  const lastScore = getLastScore(
+                    courseId,
+                    assetId,
+                    item.lessonId
+                  );
+
                   const totalQuestions = item.testQuestions.length;
 
                   return (
@@ -86,6 +93,7 @@ const AccordionCourse = ({
                         peakProgress={peakProgress}
                         peakScore={peakScore}
                         totalQuestions={totalQuestions}
+                        lastScore={lastScore}
                       />
                     </Link>
                   );

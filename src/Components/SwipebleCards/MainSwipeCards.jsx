@@ -43,7 +43,7 @@ const SwipeCards = ({ data }) => {
     setShowResults(false);
     setValidationMessage("");
   }, [courseId, assetId, lessonId]);
-
+  
   const saveProgress = (progress, score) => {
     const existingProgress =
       JSON.parse(localStorage.getItem(progressKey)) || {};
@@ -51,9 +51,22 @@ const SwipeCards = ({ data }) => {
       ...existingProgress,
       peakProgress: Math.max(existingProgress.peakProgress || 0, progress),
       peakScore: Math.max(existingProgress.peakScore || 0, score),
+      lastScore: score,
     };
     localStorage.setItem(progressKey, JSON.stringify(updatedProgress));
   };
+
+  // Прогресс без последнего результата
+  // const saveProgress = (progress, score) => {
+  //   const existingProgress =
+  //     JSON.parse(localStorage.getItem(progressKey)) || {};
+  //   const updatedProgress = {
+  //     ...existingProgress,
+  //     peakProgress: Math.max(existingProgress.peakProgress || 0, progress),
+  //     peakScore: Math.max(existingProgress.peakScore || 0, score),
+  //   };
+  //   localStorage.setItem(progressKey, JSON.stringify(updatedProgress));
+  // };
 
   const handleNext = () => {
     if (activeStep < maxSteps - 1) {

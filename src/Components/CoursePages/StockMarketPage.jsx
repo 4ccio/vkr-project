@@ -15,6 +15,11 @@ const getProgressForLesson = (courseId, assetId, lessonId) => {
   return JSON.parse(localStorage.getItem(progressKey)) || {};
 };
 
+const getLastScore = (courseId, assetId, lessonId) => {
+  const progress = getProgressForLesson(courseId, assetId, lessonId);
+  return progress.lastScore || 0;
+};
+
 const getPeakProgress = (courseId, assetId, lessonId) => {
   const progress = getProgressForLesson(courseId, assetId, lessonId);
   const peakProgress = progress.peakProgress || 0;
@@ -108,6 +113,7 @@ const StockMarketPage = ({ courseId }) => {
                       courseId={courseId}
                       getPeakProgress={getPeakProgress}
                       getPeakScore={getPeakScore}
+                      getLastScore={getLastScore}
                     />
                   ))}
                 </Stack>
