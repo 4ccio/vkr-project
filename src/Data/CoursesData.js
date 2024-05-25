@@ -1,15 +1,15 @@
-import stockIntro from "../images/stockIntro.svg";
-import cryptoIntro from "../images/cryptoIntro.svg";
-import realEstateIntro from "../images/realEstateIntro.svg";
+import stockIntro from "../assets/images/stockIntro.svg";
+import cryptoIntro from "../assets/images/cryptoIntro.svg";
+import realEstateIntro from "../assets/images/realEstateIntro.svg";
 
-import stockIcon from "../images/stockIcon.svg";
-import bondsIcon from "../images/bondsIcon.svg";
-import etfIcon from "../images/etfIcon.svg";
+import stockIcon from "../assets/images/stockIcon.svg";
+import bondsIcon from "../assets/images/bondsIcon.svg";
+import etfIcon from "../assets/images/etfIcon.svg";
 
-import whatIsCrypto from "../images/whatIsCrypto.jpg";
-import blockchain from "../images/blockchain.jpg";
-import howCryptoMade from "../images/howcryptomade.jpg";
-import significantCrypto from "../images/significantCrypto.jpg";
+import whatIsCrypto from "../assets/images/whatIsCrypto.jpg";
+import blockchain from "../assets/images/blockchain.jpg";
+import howCryptoMade from "../assets/images/howcryptomade.jpg";
+import significantCrypto from "../assets/images/significantCrypto.jpg";
 
 import stockCards from "./StockMarket/StocksCards";
 import bondCards from "./StockMarket/BondsCards";
@@ -17,16 +17,16 @@ import etfCards from "./StockMarket/EtfCards";
 import cryptoCards from "./Crypto/CryptoCards";
 import realEstateCards from "./RealEstate/RealEstateCards";
 
-import tinkoff from "../images/tinkoff.png";
-import sber from "../images/sber.png";
-import alfa from "../images/alfa.png";
-import handshake from "../images/handshake.png";
-import bybit from "../images/bybit.png";
-import oxk from "../images/OKX.png";
-import gateio from "../images/gateio.png";
-import cian from "../images/cian.jpg";
-import domclick from "../images/domclick.png";
-import pik from "../images/pik.png";
+import tinkoff from "../assets/images/tinkoff.png";
+import sber from "../assets/images/sber.png";
+import alfa from "../assets/images/alfa.png";
+import handshake from "../assets/images/handshake.png";
+import bybit from "../assets/images/bybit.png";
+import oxk from "../assets/images/OKX.png";
+import gateio from "../assets/images/gateio.png";
+import cian from "../assets/images/cian.jpg";
+import domclick from "../assets/images/domclick.png";
+import pik from "../assets/images/pik.png";
 
 const coursesData = [
   {

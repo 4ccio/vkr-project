@@ -4,13 +4,13 @@ import { useMediaQuery } from "@mui/material";
 
 import { Link } from "react-router-dom";
 
-import InvestCard from "./InvestCard";
-import coursesData from "../../Data/CoursesData";
+import InvestCard from "../Components/MainPage/InvestCard";
+import coursesData from "../Data/CoursesData";
 
-import mainImage from "../../images/mainInvest.svg";
-import stock from "../../images/stockmarketMain.svg";
-import crypto from "../../images/cryptoMain.svg";
-import realEstate from "../../images/realEstateMain.svg";
+import mainImage from "../assets/images/mainInvest.svg";
+import stock from "../assets/images/stockmarketMain.svg";
+import crypto from "../assets/images/cryptoMain.svg";
+import realEstate from "../assets/images/realEstateMain.svg";
 
 import SwipeableViews from "react-swipeable-views-react-18-fix";
 import { virtualize } from "react-swipeable-views-utils";

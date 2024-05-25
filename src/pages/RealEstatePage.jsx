@@ -5,33 +5,15 @@ import ArrowBackRoundedIcon from "@mui/icons-material/ArrowBackRounded";
 
 import { Link } from "react-router-dom";
 
-import IntroCourse from "./IntroCourse";
-import Partners from "./Partners";
+import IntroCourse from "../Components/common/IntroCourse";
+import Partners from "../Components/common/Partners";
+import Stats from "../Components/common/Stats";
 
-import data from "../../Data/CoursesData";
-import Stats from "./Stats";
+import getLastScore from "../functions/getLastScore";
+import getPeakProgress from "../functions/getPeakProgress";
+import getPeakScore from "../functions/getPeakScore";
 
-const getProgressForLesson = (courseId, assetId, lessonId) => {
-  const progressKey = `${courseId}-${assetId}-${lessonId}-progress`;
-  return JSON.parse(localStorage.getItem(progressKey)) || {};
-};
-
-const getLastScore = (courseId, assetId, lessonId) => {
-  const progress = getProgressForLesson(courseId, assetId, lessonId);
-  return progress.lastScore || 0;
-};
-
-const getPeakProgress = (courseId, assetId, lessonId) => {
-  const progress = getProgressForLesson(courseId, assetId, lessonId);
-  const peakProgress = progress.peakProgress || 0;
-  return peakProgress;
-};
-
-const getPeakScore = (courseId, assetId, lessonId) => {
-  const progress = getProgressForLesson(courseId, assetId, lessonId);
-  const peakScore = progress.peakScore || 0;
-  return peakScore;
-};
+import data from "../Data/CoursesData";
 
 const RealEstatePage = ({ courseId }) => {
   const courseData = data.find((course) => course.id === courseId);

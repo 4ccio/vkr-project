@@ -8,11 +8,15 @@ import ArrowBackRoundedIcon from "@mui/icons-material/ArrowBackRounded";
 import { Link } from "react-router-dom";
 import SwipeableViews from "react-swipeable-views-react-18-fix";
 
-import IntroCourse from "./IntroCourse";
-import CryptoLesson from "./CryptoLesson";
-import Partners from "./Partners";
+import IntroCourse from "../Components/common/IntroCourse";
+import CryptoLesson from "../Components/Crypto/CryptoLesson";
+import Partners from "../Components/common/Partners";
 
-import data from "../../Data/CoursesData";
+import getLastScore from "../functions/getLastScore";
+import getPeakProgress from "../functions/getPeakProgress";
+import getPeakScore from "../functions/getPeakScore";
+
+import data from "../Data/CoursesData";
 
 const styles = {
   slide: {

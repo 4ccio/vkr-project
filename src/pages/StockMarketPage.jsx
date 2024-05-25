@@ -4,33 +4,15 @@ import Grid from "@mui/material/Unstable_Grid2";
 import { Link } from "react-router-dom";
 import ArrowBackRoundedIcon from "@mui/icons-material/ArrowBackRounded";
 
-import AccordionCourse from "./AccordionCourse";
-import IntroCourse from "./IntroCourse";
-import Partners from "./Partners";
+import AccordionCourse from "../Components/StockMarket/AccordionCourse";
+import IntroCourse from "../Components/common/IntroCourse";
+import Partners from "../Components/common/Partners";
 
-import data from "../../Data/CoursesData";
+import getLastScore from "../functions/getLastScore";
+import getPeakProgress from "../functions/getPeakProgress";
+import getPeakScore from "../functions/getPeakScore";
 
-const getProgressForLesson = (courseId, assetId, lessonId) => {
-  const progressKey = `${courseId}-${assetId}-${lessonId}-progress`;
-  return JSON.parse(localStorage.getItem(progressKey)) || {};
-};
-
-const getLastScore = (courseId, assetId, lessonId) => {
-  const progress = getProgressForLesson(courseId, assetId, lessonId);
-  return progress.lastScore || 0;
-};
-
-const getPeakProgress = (courseId, assetId, lessonId) => {
-  const progress = getProgressForLesson(courseId, assetId, lessonId);
-  const peakProgress = progress.peakProgress || 0;
-  return peakProgress;
-};
-
-const getPeakScore = (courseId, assetId, lessonId) => {
-  const progress = getProgressForLesson(courseId, assetId, lessonId);
-  const peakScore = progress.peakScore || 0;
-  return peakScore;
-};
+import data from "../Data/CoursesData";
 
 const StockMarketPage = ({ courseId }) => {
   const courseData = data.find((course) => course.id === courseId);

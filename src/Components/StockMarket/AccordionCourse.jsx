@@ -8,7 +8,7 @@ import {
   Stack,
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import Stats from "./Stats";
+import Stats from "../common/Stats";
 
 const AccordionCourse = ({
   assetId,

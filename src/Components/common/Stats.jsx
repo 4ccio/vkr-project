@@ -2,6 +2,8 @@ import { Box, CircularProgress, Divider, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
 import AssetButton from "./AssetButton";
 
+import findColor from "../../functions/findColor";
+
 const Stats = ({
   item,
   courseId,
@@ -14,17 +16,7 @@ const Stats = ({
   const peakScore = getPeakScore(courseId, assetId, item.lessonId);
   const lastScore = getLastScore(courseId, assetId, item.lessonId);
   const totalQuestions = item.testQuestions.length;
-  const findColor = (score, totalQuestions) => {
-    const percentage = (score / totalQuestions) * 100;
 
-    if (percentage === 100) {
-      return "green";
-    } else if (percentage >= 66) {
-      return "orange";
-    } else {
-      return "red";
-    }
-  };
   return (
     <Box
       sx={{
