@@ -167,7 +167,7 @@ const SwipeCards = ({ data }) => {
     return correctAnswers;
   };
 
-  // Возврат к слайду с вопросами, а не к последнему слайду cardsArray, если вышел со слайда с вопросами
+  // Возврат к слайду с вопросами, а не к последнему слайду cardsArray, если вышел со слайда с
   useEffect(() => {
     saveCurrentProgress(activeStep);
     if (activeStep < maxSteps - 1) {

@@ -120,13 +120,6 @@ const StockMarketPage = ({ courseId }) => {
               </Grid>
               <Grid xs={12} md={6}>
                 <Box>
-                  <Typography
-                    variant="h3"
-                    marginBottom={2}
-                    textAlign={"center"}
-                  >
-                    Где инвестировать?
-                  </Typography>
                   <Box
                     sx={{
                       backgroundColor: "white",
@@ -135,6 +128,13 @@ const StockMarketPage = ({ courseId }) => {
                       padding: 4,
                     }}
                   >
+                    <Typography
+                      variant="h3"
+                      marginBottom={2}
+                      textAlign={"center"}
+                    >
+                      Где инвестировать?
+                    </Typography>
                     <Typography gutterBottom={true} textAlign={"center"}>
                       Чтобы начать инвестировать, необходимо обратиться к
                       брокеру, который будет посредником между инвестором и

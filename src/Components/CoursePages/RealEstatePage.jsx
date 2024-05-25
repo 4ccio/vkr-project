@@ -7,9 +7,31 @@ import { Link } from "react-router-dom";
 
 import IntroCourse from "./IntroCourse";
 import Partners from "./Partners";
-import AssetButton from "./AssetButton";
 
 import data from "../../Data/CoursesData";
+import Stats from "./Stats";
+
+const getProgressForLesson = (courseId, assetId, lessonId) => {
+  const progressKey = `${courseId}-${assetId}-${lessonId}-progress`;
+  return JSON.parse(localStorage.getItem(progressKey)) || {};
+};
+
+const getLastScore = (courseId, assetId, lessonId) => {
+  const progress = getProgressForLesson(courseId, assetId, lessonId);
+  return progress.lastScore || 0;
+};
+
+const getPeakProgress = (courseId, assetId, lessonId) => {
+  const progress = getProgressForLesson(courseId, assetId, lessonId);
+  const peakProgress = progress.peakProgress || 0;
+  return peakProgress;
+};
+
+const getPeakScore = (courseId, assetId, lessonId) => {
+  const progress = getProgressForLesson(courseId, assetId, lessonId);
+  const peakScore = progress.peakScore || 0;
+  return peakScore;
+};
 
 const RealEstatePage = ({ courseId }) => {
   const courseData = data.find((course) => course.id === courseId);
@@ -19,6 +41,9 @@ const RealEstatePage = ({ courseId }) => {
   }
 
   const { title, description, imageIntro, assets, partners } = courseData;
+  const assetCards = assets[0].cards;
+  const assetId = assets[0].id;
+  console.log(assetCards);
   return (
     <div>
       <Box marginBottom={3}>
@@ -98,13 +123,16 @@ const RealEstatePage = ({ courseId }) => {
                       недвижимость.
                     </Typography>
                     <Stack spacing={3}>
-                      {assets.map((asset, index) => (
-                        <Link
-                          key={asset.id}
-                          to={`/${courseId}/${asset.id}/${asset.cards[index].lessonId}`}
-                        >
-                          <AssetButton title={asset.name}></AssetButton>
-                        </Link>
+                      {assetCards.map((item) => (
+                        <Stats
+                          item={item}
+                          courseId={courseId}
+                          assetId={assetId}
+                          getPeakProgress={getPeakProgress}
+                          getPeakScore={getPeakScore}
+                          getLastScore={getLastScore}
+                          key={item}
+                        ></Stats>
                       ))}
                     </Stack>
                   </Box>

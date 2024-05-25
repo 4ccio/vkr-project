@@ -8,8 +8,7 @@ import {
   Stack,
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import AssetButton from "./AssetButton";
-import { Link } from "react-router-dom";
+import Stats from "./Stats";
 
 const AccordionCourse = ({
   assetId,
@@ -22,6 +21,8 @@ const AccordionCourse = ({
   getPeakScore,
   getLastScore,
 }) => {
+  // const result = calculateResults();
+
   return (
     <div>
       <Box>
@@ -65,37 +66,17 @@ const AccordionCourse = ({
               </Typography>
               <Stack spacing={2}>
                 {assetCards.map((item) => {
-                  const peakProgress = getPeakProgress(
-                    courseId,
-                    assetId,
-                    item.lessonId
-                  );
-                  const peakScore = getPeakScore(
-                    courseId,
-                    assetId,
-                    item.lessonId
-                  );
-                  const lastScore = getLastScore(
-                    courseId,
-                    assetId,
-                    item.lessonId
-                  );
-
-                  const totalQuestions = item.testQuestions.length;
-
                   return (
-                    <Link
-                      to={`/${courseId}/${assetId}/${item.lessonId}`}
-                      key={item.lessonId}
-                    >
-                      <AssetButton
-                        title={item.title}
-                        peakProgress={peakProgress}
-                        peakScore={peakScore}
-                        totalQuestions={totalQuestions}
-                        lastScore={lastScore}
-                      />
-                    </Link>
+                    <Box key={item.lessonId}>
+                      <Stats
+                        item={item}
+                        courseId={courseId}
+                        assetId={assetId}
+                        getPeakProgress={getPeakProgress}
+                        getPeakScore={getPeakScore}
+                        getLastScore={getLastScore}
+                      ></Stats>
+                    </Box>
                   );
                 })}
               </Stack>
