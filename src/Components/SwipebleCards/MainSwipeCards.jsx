@@ -38,8 +38,10 @@ const SwipeCards = ({ data }) => {
   useEffect(() => {
     const progress = JSON.parse(localStorage.getItem(progressKey)) || {};
     const initialStep =
-      progress.peakProgress && progress.peakProgress < 100
-        ? Math.round((progress.peakProgress / 100) * (maxSteps - 1))
+      progress.peakProgress === 100
+        ? 0
+        : progress.currentStep !== undefined
+        ? progress.currentStep
         : 0;
     setActiveStep(initialStep);
     setCurrentQuestion(0);
@@ -47,6 +49,20 @@ const SwipeCards = ({ data }) => {
     setShowResults(false);
     setValidationMessage("");
   }, [courseId, assetId, lessonId]);
+
+  // С возвратом на максимальный слад до которого ушел, а не на последний слайд с которого вышел
+  // useEffect(() => {
+  //   const progress = JSON.parse(localStorage.getItem(progressKey)) || {};
+  //   const initialStep =
+  //     progress.peakProgress && progress.peakProgress < 100
+  //       ? Math.round((progress.peakProgress / 100) * (maxSteps - 1))
+  //       : 0;
+  //   setActiveStep(initialStep);
+  //   setCurrentQuestion(0);
+  //   setAnswers(Array(questionsArray.length).fill(null));
+  //   setShowResults(false);
+  //   setValidationMessage("");
+  // }, [courseId, assetId, lessonId]);
 
   // Без возврата на слайд с которого ушел, пока не достиг 100% прогресса за урок
   // useEffect(() => {
@@ -58,6 +74,18 @@ const SwipeCards = ({ data }) => {
   //   setValidationMessage("");
   // }, [courseId, assetId, lessonId]);
 
+  // Save the current slide progress separately
+  const saveCurrentProgress = (currentStep) => {
+    const existingProgress =
+      JSON.parse(localStorage.getItem(progressKey)) || {};
+    const updatedProgress = {
+      ...existingProgress,
+      currentStep,
+    };
+    localStorage.setItem(progressKey, JSON.stringify(updatedProgress));
+  };
+
+  // Update saveProgress to not overwrite current step:
   const saveProgress = (progress, score) => {
     const existingProgress =
       JSON.parse(localStorage.getItem(progressKey)) || {};
@@ -69,6 +97,19 @@ const SwipeCards = ({ data }) => {
     };
     localStorage.setItem(progressKey, JSON.stringify(updatedProgress));
   };
+
+  // Прогресс с последним и лучшим результатом за тест
+  // const saveProgress = (progress, score) => {
+  //   const existingProgress =
+  //     JSON.parse(localStorage.getItem(progressKey)) || {};
+  //   const updatedProgress = {
+  //     ...existingProgress,
+  //     peakProgress: Math.max(existingProgress.peakProgress || 0, progress),
+  //     peakScore: Math.max(existingProgress.peakScore || 0, score),
+  //     lastScore: score,
+  //   };
+  //   localStorage.setItem(progressKey, JSON.stringify(updatedProgress));
+  // };
 
   // Прогресс без последнего результата
   // const saveProgress = (progress, score) => {
@@ -126,12 +167,30 @@ const SwipeCards = ({ data }) => {
     return correctAnswers;
   };
 
+  // Возврат к слайду с вопросами, а не к последнему слайду cardsArray, если вышел со слайда с вопросами
   useEffect(() => {
-    const progress = (activeStep / (maxSteps - 1)) * 100;
+    saveCurrentProgress(activeStep);
     if (activeStep < maxSteps - 1) {
+      const progress = (activeStep / (maxSteps - 1)) * 100;
       saveProgress(progress, calculateResults());
     }
   }, [activeStep]);
+
+  // Save the current step whenever the active step changes:
+  // useEffect(() => {
+  //   if (activeStep < maxSteps - 1) {
+  //     saveCurrentProgress(activeStep);
+  //     const progress = (activeStep / (maxSteps - 1)) * 100;
+  //     saveProgress(progress, calculateResults());
+  //   }
+  // }, [activeStep]);
+
+  // useEffect(() => {
+  //   const progress = (activeStep / (maxSteps - 1)) * 100;
+  //   if (activeStep < maxSteps - 1) {
+  //     saveProgress(progress, calculateResults());
+  //   }
+  // }, [activeStep]);
 
   return (
     <div>
