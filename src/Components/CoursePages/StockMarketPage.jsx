@@ -1,3 +1,4 @@
+import React from "react";
 import { Box, Typography, Container, Stack, IconButton } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
 import { Link } from "react-router-dom";
@@ -8,6 +9,23 @@ import IntroCourse from "./IntroCourse";
 import Partners from "./Partners";
 
 import data from "../../Data/CoursesData";
+
+const getProgressForLesson = (courseId, assetId, lessonId) => {
+  const progressKey = `${courseId}-${assetId}-${lessonId}-progress`;
+  return JSON.parse(localStorage.getItem(progressKey)) || {};
+};
+
+const getPeakProgress = (courseId, assetId, lessonId) => {
+  const progress = getProgressForLesson(courseId, assetId, lessonId);
+  const peakProgress = progress.peakProgress || 0;
+  return peakProgress;
+};
+
+const getPeakScore = (courseId, assetId, lessonId) => {
+  const progress = getProgressForLesson(courseId, assetId, lessonId);
+  const peakScore = progress.peakScore || 0;
+  return peakScore;
+};
 
 const StockMarketPage = ({ courseId }) => {
   const courseData = data.find((course) => course.id === courseId);
@@ -63,7 +81,7 @@ const StockMarketPage = ({ courseId }) => {
           title={title}
           description={description}
           image={imageIntro}
-        ></IntroCourse>
+        />
 
         <Box component={"section"} className="course-elements">
           <Container>
@@ -79,15 +97,17 @@ const StockMarketPage = ({ courseId }) => {
                   <Typography variant="h3" textAlign={"center"}>
                     Основные активы
                   </Typography>
-                  {assets.map((asset, index) => (
+                  {assets.map((asset, assetIndex) => (
                     <AccordionCourse
-                      key={index}
+                      key={assetIndex}
                       assetId={asset.id}
                       assetName={asset.name}
                       assetImage={asset.image}
                       assetDetails={asset.details}
                       assetCards={asset.cards}
                       courseId={courseId}
+                      getPeakProgress={getPeakProgress}
+                      getPeakScore={getPeakScore}
                     />
                   ))}
                 </Stack>
@@ -128,7 +148,7 @@ const StockMarketPage = ({ courseId }) => {
                             image={item.image}
                             title={item.title}
                             link={item.link}
-                          ></Partners>
+                          />
                         </Grid>
                       ))}
                     </Grid>
@@ -136,6 +156,23 @@ const StockMarketPage = ({ courseId }) => {
                 </Box>
               </Grid>
             </Grid>
+
+            {/* <Box component={"section"} className="stats-elements">
+              <Container>
+                <Grid container justifyContent="center" spacing={4}>
+                  <Grid xs={12} md={6}>
+                    <Typography
+                      variant="h4"
+                      textAlign="center"
+                      marginBottom={2}
+                    >
+                      User Progress Stats
+                    </Typography>
+                    {renderProgressStats()}
+                  </Grid>
+                </Grid>
+              </Container>
+            </Box> */}
           </Container>
         </Box>
       </Box>

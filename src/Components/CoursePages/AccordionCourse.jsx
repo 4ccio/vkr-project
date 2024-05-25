@@ -18,6 +18,8 @@ const AccordionCourse = ({
   assetDetails,
   assetCards,
   courseId,
+  getPeakProgress,
+  getPeakScore,
 }) => {
   return (
     <div>
@@ -25,10 +27,7 @@ const AccordionCourse = ({
         <Accordion
           square={true}
           disableGutters={true}
-          sx={{
-            borderRadius: 4,
-            boxShadow: "0px 2px 5px rgb(166, 180, 200)",
-          }}
+          sx={{ borderRadius: 4, boxShadow: "0px 2px 5px rgb(166, 180, 200)" }}
         >
           <AccordionSummary
             expandIcon={<ExpandMoreIcon />}
@@ -59,22 +58,38 @@ const AccordionCourse = ({
             <Container>
               <Typography
                 marginBottom={3}
-                sx={{
-                  fontSize: "1rem",
-                  fontWeight: "400",
-                }}
+                sx={{ fontSize: "1rem", fontWeight: "400" }}
               >
                 {assetDetails}
               </Typography>
               <Stack spacing={2}>
-                {assetCards.map((item) => (
-                  <Link
-                    to={`/${courseId}/${assetId}/${item.lessonId}`}
-                    key={item.lessonId}
-                  >
-                    <AssetButton title={item.title}></AssetButton>
-                  </Link>
-                ))}
+                {assetCards.map((item) => {
+                  const peakProgress = getPeakProgress(
+                    courseId,
+                    assetId,
+                    item.lessonId
+                  );
+                  const peakScore = getPeakScore(
+                    courseId,
+                    assetId,
+                    item.lessonId
+                  );
+                  const totalQuestions = item.testQuestions.length;
+
+                  return (
+                    <Link
+                      to={`/${courseId}/${assetId}/${item.lessonId}`}
+                      key={item.lessonId}
+                    >
+                      <AssetButton
+                        title={item.title}
+                        peakProgress={peakProgress}
+                        peakScore={peakScore}
+                        totalQuestions={totalQuestions}
+                      />
+                    </Link>
+                  );
+                })}
               </Stack>
             </Container>
           </AccordionDetails>
@@ -83,4 +98,5 @@ const AccordionCourse = ({
     </div>
   );
 };
+
 export default AccordionCourse;
