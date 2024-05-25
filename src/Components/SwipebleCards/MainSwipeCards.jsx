@@ -36,14 +36,28 @@ const SwipeCards = ({ data }) => {
   const [validationMessage, setValidationMessage] = useState("");
 
   useEffect(() => {
-    // Reset state when the component mounts
-    setActiveStep(0);
+    const progress = JSON.parse(localStorage.getItem(progressKey)) || {};
+    const initialStep =
+      progress.peakProgress && progress.peakProgress < 100
+        ? Math.round((progress.peakProgress / 100) * (maxSteps - 1))
+        : 0;
+    setActiveStep(initialStep);
     setCurrentQuestion(0);
     setAnswers(Array(questionsArray.length).fill(null));
     setShowResults(false);
     setValidationMessage("");
   }, [courseId, assetId, lessonId]);
-  
+
+  // Без возврата на слайд с которого ушел, пока не достиг 100% прогресса за урок
+  // useEffect(() => {
+  //   // Reset state when the component mounts
+  //   setActiveStep(0);
+  //   setCurrentQuestion(0);
+  //   setAnswers(Array(questionsArray.length).fill(null));
+  //   setShowResults(false);
+  //   setValidationMessage("");
+  // }, [courseId, assetId, lessonId]);
+
   const saveProgress = (progress, score) => {
     const existingProgress =
       JSON.parse(localStorage.getItem(progressKey)) || {};
