@@ -15,12 +15,14 @@ import Partners from "../Components/common/Partners";
 import getLastScore from "../functions/getLastScore";
 import getPeakProgress from "../functions/getPeakProgress";
 import getPeakScore from "../functions/getPeakScore";
+import findColor from "../functions/findColor";
 
 import data from "../Data/CoursesData";
 
 const styles = {
   slide: {
-    maxWidth: "200px",
+    maxWidth: "220px",
+    height: "150",
     display: "flex",
     justifyContent: "center",
     paddingTop: "10px",
@@ -97,45 +99,101 @@ const CryptoPage = ({ courseId }) => {
                         padding: "0 5%",
                       }}
                     >
-                      {assets.map((asset, index) => (
-                        <div key={asset.id} style={styles.slide}>
+                      {assets.map((asset, index) => {
+                        const progress = getPeakProgress(
+                          courseId,
+                          asset.id,
+                          asset.cards[index].lessonId
+                        );
+                        const bestScore = getPeakScore(
+                          courseId,
+                          asset.id,
+                          asset.cards[index].lessonId
+                        );
+                        const lastScore = getLastScore(
+                          courseId,
+                          asset.id,
+                          asset.cards[index].lessonId
+                        );
+                        const totalQuestions =
+                          asset.cards[index].testQuestions.length;
+
+                        return (
+                          <div key={asset.id} style={styles.slide}>
+                            <Link
+                              to={`/${courseId}/${asset.id}/${asset.cards[index].lessonId}`}
+                            >
+                              <CryptoLesson
+                                image={asset.image}
+                                title={asset.name}
+                                progress={progress}
+                                bestScore={bestScore}
+                                lastScore={lastScore}
+                                totalQuestions={totalQuestions}
+                                findColor={findColor}
+                              />
+                            </Link>
+                          </div>
+                        );
+                      })}
+                    </SwipeableViews>
+                  </Grid>
+                ) : (
+                  <Grid xs={12} md={12} container spacing={2}>
+                    {assets.map((asset, index) => {
+                      const progress = getPeakProgress(
+                        courseId,
+                        asset.id,
+                        asset.cards[index].lessonId
+                      );
+                      const bestScore = getPeakScore(
+                        courseId,
+                        asset.id,
+                        asset.cards[index].lessonId
+                      );
+                      const lastScore = getLastScore(
+                        courseId,
+                        asset.id,
+                        asset.cards[index].lessonId
+                      );
+                      const totalQuestions =
+                        asset.cards[index].testQuestions.length;
+
+                      return (
+                        <Grid
+                          key={asset.id}
+                          xs={12}
+                          sm={6}
+                          lg={3}
+                          display={"flex"}
+                          justifyContent={"center"}
+                        >
                           <Link
                             to={`/${courseId}/${asset.id}/${asset.cards[index].lessonId}`}
                           >
                             <CryptoLesson
                               image={asset.image}
                               title={asset.name}
-                            ></CryptoLesson>
+                              progress={progress}
+                              bestScore={bestScore}
+                              lastScore={lastScore}
+                              totalQuestions={totalQuestions}
+                              findColor={findColor}
+                            />
                           </Link>
-                        </div>
-                      ))}
-                    </SwipeableViews>
-                  </Grid>
-                ) : (
-                  <Grid xs={12} md={6} container spacing={2}>
-                    {assets.map((asset, index) => (
-                      <Grid
-                        key={asset.id}
-                        xs={12}
-                        sm={6}
-                        display={"flex"}
-                        justifyContent={"center"}
-                      >
-                        <Link
-                          to={`/${courseId}/${asset.id}/${asset.cards[index].lessonId}`}
-                        >
-                          <CryptoLesson
-                            image={asset.image}
-                            title={asset.name}
-                          ></CryptoLesson>
-                        </Link>
-                      </Grid>
-                    ))}
+                        </Grid>
+                      );
+                    })}
                   </Grid>
                 )}
 
-                <Grid xs={12} md={6}>
-                  <Box>
+                <Grid
+                  xs={12}
+                  md={12}
+                  display={"flex"}
+                  justifyContent={"center"}
+                >
+                  <Box maxWidth={"600px"}>
                     <Box
                       sx={{
                         backgroundColor: "white",
